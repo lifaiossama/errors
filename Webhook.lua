@@ -244,3 +244,27 @@ z:AddToggle(
         end
     }
 )
+z:AddSlider(
+    {Name = "Send Delay", Default = _G.Settings.webhookspeed, Min = 10, Max = 10, Color = Color3.fromRGB(98, 0, 182), Callback = function(H)
+            _G.Settings.webhookspeed = H
+            saveSettings()
+        end}
+)
+
+z:AddTextbox(
+    {Name = "Put Your ID", Default = _G.Settings.dsuser, TextDisappear = false, Callback = function(H)
+            _G.Settings.dsuser = H
+            saveSettings()
+        end}
+)
+z:AddTextbox(
+    {
+        Name = "Put @here or @everyone ",
+        Default = _G.Settings.otherds,
+        TextDisappear = false,
+        Callback = function(H)
+            _G.Settings.otherds = H
+            saveSettings()
+        end
+    }
+)

