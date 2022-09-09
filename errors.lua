@@ -251,7 +251,7 @@ w:AddToggle(
                         if not _G.Settings.Autolvl then
                             break
                         end
-                        wait(10)
+                        wait(15)
                         Lvl = game.Players.LocalPlayer.leaderstats.Level.Value
                         if Lvl > 0 and Lvl < 6 then
                             wait(1)
