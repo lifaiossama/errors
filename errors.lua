@@ -1655,7 +1655,7 @@ y:AddDropdown({Name = "Select Main Character", Default = _G.Settings.SelectedMai
     saveSettings()
 end})
 task.spawn(function()
-    while task.wait(20) do
+    while task.wait(25) do
         if _G.Settings.AutoEquipMCharacter and _G.Settings.SelectedMainCharacter then
             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                 "EquipCharacter",
@@ -1684,7 +1684,7 @@ y:AddDropdown({Name = "Select Assist Character 2", Default = _G.Settings.Selecte
     saveSettings()
 end})
 task.spawn(function()
-    while task.wait(21) do
+    while task.wait(26) do
         if _G.Settings.AutoEquipACharacter then
             if _G.Settings.SelectedAssitCharacter1 then
                 game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
