@@ -1843,6 +1843,31 @@ x:AddToggle(
 )
 x:AddToggle(
     {
+        Name = "Auto Retry",
+        Default = _G.Settings.AutoRetry,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.AutoRetry = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(1) do
+                        if not _G.Settings.AutoRetry then
+                            break
+                        end
+                        while wait() do
+                            game:GetService("ReplicatedStorage").RemoteEvents.MainRemoteEvent:FireServer(
+                                "RetryDungeon"
+                            )                           
+                         end                                                                                                                                                                                                                                                                       
+                    end
+                end
+            )
+        end
+    }
+)
+x:AddToggle(
+    {
         Name = "Auto Reduce Damage 20%",
         Default = _G.Settings.ReduceDamage,
         Color = Color3.fromRGB(98, 0, 182),
