@@ -1,5 +1,5 @@
 
-
+local z = v:MakeTab({Name = "Webhook", PremiumOnly = false})
 z:AddTextbox(
     {Name = "Webhook Url", Default = _G.Settings.webhookurl, TextDisappear = false, Callback = function(H)
             _G.Settings.webhookurl = H
