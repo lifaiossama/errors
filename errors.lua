@@ -153,6 +153,7 @@ local p = {
     "Levi",
     "Naruto Six Paths",
     "RimuruDemonLord",
+    "Rimuru",
     "KiritoCharacter",
     "Megumin (Halloween)",
     "RengokuCharacter",
@@ -160,7 +161,7 @@ local p = {
     "Lancer",
     "Nezuko (New Year)",
     "TogaCharacter (Halloween)",
-    "Megumin (Halloween)",
+    "Megumin",
     "Emiya Archer",
     "Sukuna",
     "Infinity Gojo",
@@ -750,73 +751,6 @@ w:AddToggle(
         end
     }
 )
-local X = {
-    "Sung Jin Woo",
-    "MilimCharacter (Valentine)",
-    "Ryuko",
-    "Saber Alter Character",
-    "Alice",
-    "Broly",
-    "Gilgamesh",
-    "Kokushibo",
-    "Ice Queen Esdeath",
-    "Katakuri",
-    "Obito",
-    "Shanks",
-    "Uzui",
-    "Levi",
-    "Naruto Six Paths",
-    "RimuruDemonLord",
-    "KiritoCharacter",
-    "Megumin (Halloween)",
-    "RengokuCharacter",
-    "KanekiCharacter",
-    "Lancer",
-    "Nezuko (New Year)",
-    "TogaCharacter (Halloween)",
-    "Megumin (Halloween)",
-    "Emiya Archer",
-    "Sukuna",
-    "Infinity Gojo",
-    "AsunaCharacter",
-    "Zoro",
-    "All Might",
-    "Rukia",
-    "Shinra",
-    "Tanjiro",
-    "Gray",
-    "Sasuke",
-    "Akaza",
-    "Asta",
-    "Killua",
-    "Natsu",
-    "Sakura",
-    "Accelerator",
-    "Deku",
-    "Goku",
-    "Ichigo",
-    "Luffy",
-    "Naruto",
-    "Gojo",
-    "Genos",
-    "Attack Titan",
-    "Eugeo",
-    "Gear 5 Luffy",
-    "Esper",
-    "Katakuri (Summer) Character",
-    "PriestessCharacter (Shrine)",
-    "Bakugo",
-    "Diablo",
-    "Artoria",
-    "Yoriichi",
-    "MisakaCharacter",
-    "Naofumi",
-    "Zenitsu",
-    "Itadori",
-    "Todoroki",
-    "Priestess",
-    "Astolfo Summer Character"
-}
 w:AddToggle(
     {
         Name = "🌀 Farm Speed Raid (Auto Random Character)",
@@ -832,8 +766,8 @@ w:AddToggle(
                             break
                         end
                         wait()
-                        local Y = math.random(1, #X)
-                        local Z = X[Y]
+                        local Y = math.random(1, #p)
+                        local Z = p[Y]
                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                             "TeleportToShadowRaid",
                             Z
@@ -1580,77 +1514,7 @@ y:AddToggle(
             saveSettings()
         end}
 )
-
-
-
-local Characters = {
-    "Sung Jin Woo",
-    "MilimCharacter (Valentine)",
-    "Ryuko",
-    "Saber Alter Character",
-    "Alice",
-    "Broly",
-    "Gilgamesh",
-    "Kokushibo",
-    "Ice Queen Esdeath",
-    "Katakuri",
-    "Obito",
-    "Shanks",
-    "Uzui",
-    "Levi",
-    "Naruto Six Paths",
-    "RimuruDemonLord",
-    "KiritoCharacter",
-    "Megumin (Halloween)",
-    "RengokuCharacter",
-    "KanekiCharacter",
-    "Lancer",
-    "Nezuko (New Year)",
-    "TogaCharacter (Halloween)",
-    "Megumin (Halloween)",
-    "Emiya Archer",
-    "Sukuna",
-    "Infinity Gojo",
-    "AsunaCharacter",
-    "Zoro",
-    "All Might",
-    "Rukia",
-    "Shinra",
-    "Tanjiro",
-    "Gray",
-    "Sasuke",
-    "Akaza",
-    "Asta",
-    "Killua",
-    "Natsu",
-    "Sakura",
-    "Accelerator",
-    "Deku",
-    "Goku",
-    "Ichigo",
-    "Luffy",
-    "Naruto",
-    "Gojo",
-    "Genos",
-    "Attack Titan",
-    "Eugeo",
-    "Gear 5 Luffy",
-    "Esper",
-    "Katakuri (Summer) Character",
-    "PriestessCharacter (Shrine)",
-    "Bakugo",
-    "Diablo",
-    "Artoria",
-    "Yoriichi",
-    "MisakaCharacter",
-    "Naofumi",
-    "Zenitsu",
-    "Itadori",
-    "Todoroki",
-    "Priestess",
-    "Astolfo Summer Character"
-}
-y:AddDropdown({Name = "Select Main Character", Default = _G.Settings.SelectedMainCharacter, Options = Characters, Callback = function(H)
+y:AddDropdown({Name = "Select Main Character", Default = _G.Settings.SelectedMainCharacter, Options = p, Callback = function(H)
     _G.Settings.SelectedMainCharacter = H
     saveSettings()
 end})
@@ -1675,11 +1539,11 @@ y:AddToggle(
         end
     }
 )
-y:AddDropdown({Name = "Select Assist Character 1", Default = _G.Settings.SelectedAssitCharacter1, Options = Characters, Callback = function(H)
+y:AddDropdown({Name = "Select Assist Character 1", Default = _G.Settings.SelectedAssitCharacter1, Options = p, Callback = function(H)
     _G.Settings.SelectedAssitCharacter1 = H
     saveSettings()
 end})
-y:AddDropdown({Name = "Select Assist Character 2", Default = _G.Settings.SelectedAssitCharacter2, Options = Characters, Callback = function(H)
+y:AddDropdown({Name = "Select Assist Character 2", Default = _G.Settings.SelectedAssitCharacter2, Options = p, Callback = function(H)
     _G.Settings.SelectedAssitCharacter2 = H
     saveSettings()
 end})
