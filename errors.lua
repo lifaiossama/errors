@@ -1045,7 +1045,7 @@ D:AddToggle(
                         end
                         pcall(
                             function()
-                                game.Players.LocalPlayer.Character.Humanoid:ChangeState(16)
+                                game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
                                 game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
                             end
                         )
@@ -1099,7 +1099,7 @@ D:AddToggle(
                         end
                         pcall(
                             function()
-                                game.Players.LocalPlayer.Character.Humanoid:ChangeState(16)
+                                game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
                                 game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
                             end
                         )
