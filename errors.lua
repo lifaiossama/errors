@@ -29,7 +29,7 @@ _G.Settings = {
     autosellepic = false,
     selectegg = "None",
     autoselllegendary = false,
-    autoequipbest = false,
+    autoequipbest = true,
     autoupgrade = false,
     Height = 20,
     Height1 = -20,
@@ -64,7 +64,6 @@ _G.Settings = {
     Autoraid = false,
     kickrejoin = true
 }
-
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
@@ -1326,24 +1325,6 @@ z:AddToggle(
                                             game.ReplicatedStorage[_G.Name].MinutesPlayedToday.Value
                                     )
                                     },
-                                    {
-                                    ["name"] = "⚠️Gems",
-                                    ["value"] = game:GetService("HttpService"):JSONDecode(
-                                          game.ReplicatedStorage[_G.Name].Gem.Value
-                                        )
-                                    },
-                                    {
-                                        ["name"] = "Experiens",
-                                        ["value"] = game:GetService("HttpService"):JSONDecode(
-                                            game.ReplicatedStorage[_G.Name].Experience.Value
-                                            )
-                                    },
-                                    {
-                                        ["name"] = "Max Characters Owned",
-                                        ["value"] = game:GetService("HttpService"):JSONDecode(
-                                            game.ReplicatedStorage[_G.Name].MaxCharactersOwned.Value
-                                            )
-                                    }, 
                                     {
                                         ["name"] = "Time Challenge High Score",
                                         ["value"] = game:GetService("HttpService"):JSONDecode(
