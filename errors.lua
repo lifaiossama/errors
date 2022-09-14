@@ -1,69 +1,3 @@
-repeat wait() until game:IsLoaded()
-_G.Settings = {
-    Autoleave = true,
-    kickrejoin = true,
-    LeaveDungeons = true,
-    SummerEvent = false,
-    SummerSpin = false,
-    farmraidtoken = false,
-    skilldelay = 1,
-    Raidselectmap = "None",
-    distance = 10,
-    toggleguikey = "z",
-    Hardcore = false,
-    afkandraid = false,
-    autospingem = false,
-    autoclaimrewardraid = false,
-    FriendsOnly = true,
-    eggspintime = "3",
-    autoclaimrewardspeed = false,
-    equipselectmain = false,
-    equipselectmain1 = false,
-    equipselectmain2 = false,
-    selectmain = "None",
-    selectmain1 = "None",
-    selectmain2 = "None",
-    autosellcommon = false,
-    autoselluncommon = false,
-    autosellrare = false,
-    autosellepic = false,
-    selectegg = "None",
-    autoselllegendary = false,
-    autoequipbest = true,
-    autoupgrade = false,
-    Height = 20,
-    Height1 = -20,
-    otherds = "@here",
-    dsuser = "Not Set",
-    AutoPunch = true,
-    punchdelay = "4",
-    custommapselect = "None",
-    webhookspeed = "10",
-    AutoFarm = false,
-    AutoTP = false,
-    AutoTP1 = false,
-    AutoTP2 = true,
-    CustomDifficulty = "None",
-    Autocustom = false,
-    AutoRetry = false,
-    webhookurl = "",
-    AutoSkill1 = true,
-    AutoSkill2 = true,
-    AutoSkill3 = true,
-    AutoSkill4 = true,
-    AutoSkill5 = true,
-    AutoSkill6 = true,
-    kickwebhook = false,
-    Speed = 80,
-    Hidename = true,
-    Autolvl = false,
-    Autospeedraid = false,
-    Autoboss = false,
-    webhook = false,
-    raidwebhook = false,
-    Autoraid = false,
-    kickrejoin = true
-}
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
@@ -137,6 +71,7 @@ j.Idled:Connect(
 )
 local p = {
     "Sung Jin Woo",
+    "Zoro (Summer)",
     "MilimCharacter (Valentine)",
     "Ryuko",
     "Saber Alter Character",
@@ -179,6 +114,7 @@ local p = {
     "Sakura",
     "Accelerator",
     "Deku",
+    "Shadow Rimuru",
     "Goku",
     "Ichigo",
     "Luffy",
@@ -201,7 +137,14 @@ local p = {
     "Itadori",
     "Todoroki",
     "Priestess",
-    "Astolfo Summer Character"
+    "Shadow Yoriichi",
+    "Shadow Attack Titan",
+    "Shadow Infinity Gojo",
+    "Winter Spirit Emilia",
+    "Shadow Esdeath",
+    "Hinata",
+    "Astolfo Summer Character",
+    "Shadow Accelerator"
 }
 local q = {
     "Infinite Mode",
@@ -218,7 +161,7 @@ local r = {"Easy", "Hard", "Nightmare", "Infinite"}
 local s = {"Capsule Series 1", "Raid Capsule", "Gear 5 Fluffy Capsule", "Esper Capsule"}
 local t = { "Tengoku Raid", "Hirito Raid", "Titan Raid", "Esper Raid" ,"Demon Lord Raid","Yomiichi Raid", "Christmas Raid","Combat Titan Raid", "Infinity Nojo Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid"}
 local u = loadstring(game:HttpGet("https://www.klgrth.io/paste/gs77p/raw"))()
-local v = u:MakeWindow({Name = "The Intruders V0.4", HidePremium = true, IntroEnabled = false})
+local v = u:MakeWindow({Name = "The Intruders", HidePremium = true, IntroEnabled = false})
 local w = v:MakeTab({Name = "Main", PremiumOnly = false})
 local x = v:MakeTab({Name = "Extra", PremiumOnly = false})
 local D = v:MakeTab({Name = "TP Method", PremiumOnly = false})
@@ -228,7 +171,7 @@ local F = v:MakeTab({Name = "Afk Farm", PremiumOnly = false})
 local A = v:MakeTab({Name = "Auto Sell", PremiumOnly = false})
 local B = v:MakeTab({Name = "Auto Spin", PremiumOnly = false})
 local C = v:MakeTab({Name = "Auto Claim", PremiumOnly = false})
-local z = v:MakeTab({Name = "Webhook", PremiumOnly = false})
+--local z = v:MakeTab({Name = "Webhook", PremiumOnly = false})
 local G = v:MakeTab({Name = "Credits", PremiumOnly = false})
 
 --[[
@@ -531,7 +474,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Nightmare",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Slime Dimension",
-                                    ["Hardcore"] = true
+                                    ["Hardcore"] = false
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -1261,234 +1204,6 @@ B:AddToggle(
         end
     }
 )
-
-
-z:AddTextbox(
-    {Name = "Webhook Url", Default = _G.Settings.webhookurl, TextDisappear = false, Callback = function(H)
-            _G.Settings.webhookurl = H
-            saveSettings()
-        end}
-)
-z:AddToggle(
-    {
-        Name = "Clear Notifier",
-        Default = _G.Settings.webhook,
-        Color = Color3.fromRGB(98, 0, 182),
-        Callback = function(H)
-            _G.Settings.webhook = H
-            saveSettings()
-            task.spawn(
-                function()
-                    while task.wait(_G.Settings.webhookspeed) do
-                        if not _G.Settings.webhook then
-                            break
-                        end
-                        if
-                            game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.ResultUI.Visible ==
-                                true
-                         then
-                            _G.Name = game.Players.LocalPlayer.Name .. "StatDisplay"
-                            function webhook(_, a0)
-                                local request = http_request or request or HttpPost or syn.request
-                                request(
-                                    {
-                                        Url = _G.Settings.webhookurl,
-                                        Method = "POST",
-                                        Headers = {["Content-Type"] = "application/json"},
-                                        Body = game:GetService("HttpService"):JSONEncode({embeds = {_}, content = a0})
-                                    }
-                                )
-                            end
-                            local _ = {
-                                ["title"] = "GAME CLEAR",
-                                ["type"] = "rich",
-                                ["thumbnail"] = {
-                                    ["url"] = "https://cdn.discordapp.com/attachments/712476827829927999/1016682953964802078/IMG_20220524_192236_677.png"
-                                },
-                                ["description"] = "Character Info / Session Info:",
-                                ["fields"] = {
-                                    {
-                                        ["name"] = "💥 My Level",
-                                        ["value"] = game:GetService("HttpService"):JSONDecode(
-                                            game.Players.LocalPlayer.leaderstats.Level.Value
-                                        )
-                                    },
-                                    {
-                                        ["name"] = "⚠️ Exploit Detected",
-                                        ["value"] = game:GetService("HttpService"):JSONDecode(
-                                            game.ReplicatedStorage[_G.Name].ExploitsDetected.Value
-                                        )
-                                    },
-                                    {
-                                    ["name"] = "⚠️Minutes Played Today",
-                                    ["value"] = game:GetService("HttpService"):JSONDecode(
-                                            game.ReplicatedStorage[_G.Name].MinutesPlayedToday.Value
-                                    )
-                                    },
-                                    {
-                                        ["name"] = "Time Challenge High Score",
-                                        ["value"] = game:GetService("HttpService"):JSONDecode(
-                                            game.ReplicatedStorage[_G.Name].TimeChallengeHighScore.Value
-                                            )
-                                    }, 
-                                    {
-                                        ["name"] = "Deaths",
-                                        ["value"] = game:GetService("HttpService"):JSONDecode(
-                                            game.ReplicatedStorage[_G.Name].Deaths.Value
-                                            )
-                                    }, 
-                                                                                     
-                                    {
-                                        ["name"] = "💠 Infinite Record",
-                                        ["value"] = game:GetService("HttpService"):JSONDecode(
-                                            game.ReplicatedStorage[_G.Name].InfiniteRecord.Value
-                                        )
-                                    },
-                                    {
-                                        ["name"] = "🌌 Dimension Clear",
-                                        ["value"] = game:GetService("HttpService"):JSONDecode(
-                                            game.ReplicatedStorage[_G.Name].StageClear.Value
-                                        )
-                                    },
-                                },
-                                ["timestamp"] = DateTime.now():ToIsoDate()
-                            }
-                            webhook(_, "<@" .. _G.Settings.dsuser .. ">" .. _G.Settings.otherds)
-                        end
-                    end
-                end
-            )
-        end
-    }
-)
-z:AddToggle(
-    {
-        Name = "Raid Notifier",
-        Default = _G.Settings.raidwebhook,
-        Color = Color3.fromRGB(98, 0, 182),
-        Callback = function(H)
-            _G.Settings.raidwebhook = H
-            saveSettings()
-            task.spawn(
-                function()
-                    while task.wait(_G.Settings.webhookspeed) do
-                        if not _G.Settings.raidwebhook then
-                            break
-                        end
-                        if
-                            game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.RaidResultUI.Visible ==
-                                true
-                         then
-                            _G.Name = game.Players.LocalPlayer.Name .. "StatDisplay"
-                            function webhook(_, a0)
-                                local request = http_request or request or HttpPost or syn.request
-                                request(
-                                    {
-                                        Url = _G.Settings.webhookurl,
-                                        Method = "POST",
-                                        Headers = {["Content-Type"] = "application/json"},
-                                        Body = game:GetService("HttpService"):JSONEncode({embeds = {_}, content = a0})
-                                    }
-                                )
-                            end
-                            local _ = {
-                                ["title"] = "RAID & BOSSRUSH CLEAR",
-                                ["type"] = "rich",
-                                ["thumbnail"] = {
-                                    ["url"] = "https://cdn.discordapp.com/attachments/712476827829927999/1016682953964802078/IMG_20220524_192236_677.png"
-                                },
-                                ["description"] = "Character Info / Session Info:",
-                                ["fields"] = {
-                                    {
-                                        ["name"] = "⚠️ Exploit Detected",
-                                        ["value"] = game:GetService("HttpService"):JSONDecode(
-                                            game.ReplicatedStorage[_G.Name].ExploitsDetected.Value
-                                        )
-                                    },
-                                    {
-                                        ["name"] = "🌀 Boss Rush Clear",
-                                        ["value"] = game:GetService("HttpService"):JSONDecode(
-                                            game.ReplicatedStorage[_G.Name].BossRushClears.Value
-                                        )
-                                    },
-                                    {
-                                        ["name"] = "🎟️ Boss Rush Ticket",
-                                        ["value"] = game:GetService("HttpService"):JSONDecode(
-                                            game.ReplicatedStorage[_G.Name].BossRushFreeEntry.Value
-                                        )
-                                    },
-                                    {
-                                        ["name"] = "🌀 Raid Clear",
-                                        ["value"] = game:GetService("HttpService"):JSONDecode(
-                                            game.ReplicatedStorage[_G.Name].RaidClears.Value
-                                        )
-                                    }
-                                },
-                                ["timestamp"] = DateTime.now():ToIsoDate()
-                            }
-                            webhook(_, "<@" .. _G.Settings.dsuser .. ">" .. _G.Settings.otherds)
-                        end
-                    end
-                end
-            )
-        end
-    }
-)
-z:AddToggle(
-    {
-        Name = "Level Notifier",
-        Default = _G.Settings.levelwebhook,
-        Color = Color3.fromRGB(98, 0, 182),
-        Callback = function(H)
-            _G.Settings.levelwebhook = H
-            saveSettings()
-            task.spawn(
-                function()
-                    while task.wait(3) do
-                        if not _G.Settings.levelwebhook then
-                            break
-                        end
-                        if
-                            game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.LevelUpImage.Visible ==
-                                true
-                         then
-                            _G.Name = game.Players.LocalPlayer.Name .. "StatDisplay"
-                            function webhook(_, a0)
-                                local request = http_request or request or HttpPost or syn.request
-                                request(
-                                    {
-                                        Url = _G.Settings.webhookurl,
-                                        Method = "POST",
-                                        Headers = {["Content-Type"] = "application/json"},
-                                        Body = game:GetService("HttpService"):JSONEncode({embeds = {_}, content = a0})
-                                    }
-                                )
-                            end
-                            local _ = {
-                                ["title"] = "🆙 YOU HAVE LEVELED",
-                                ["type"] = "rich",
-                                ["thumbnail"] = {
-                                    ["url"] = "https://cdn.discordapp.com/attachments/712476827829927999/1016682953964802078/IMG_20220524_192236_677.png"
-                                },
-                                ["description"] = "",
-                                ["fields"] = {
-                                    {
-                                        ["name"] = "Your are now:",
-                                        ["value"] = game:GetService("HttpService"):JSONDecode(
-                                            game.Players.LocalPlayer.leaderstats.Level.Value
-                                        )
-                                    }
-                                },
-                                ["timestamp"] = DateTime.now():ToIsoDate()
-                            }
-                            webhook(_, "<@" .. _G.Settings.dsuser .. ">" .. _G.Settings.otherds)
-                        end
-                    end
-                end
-            )
-        end
-    }
-)
 y:AddToggle(
     {Name = "Friends Only", Default = _G.Settings.FriendsOnly, Color = Color3.fromRGB(98, 0, 182), Callback = function(H)
             _G.Settings.FriendsOnly = H
@@ -2206,6 +1921,235 @@ D:AddSlider(
             saveSettings()
         end}
 )
+
+
+--[[ Webhook
+z:AddTextbox(
+    {Name = "Webhook Url", Default = _G.Settings.webhookurl, TextDisappear = false, Callback = function(H)
+            _G.Settings.webhookurl = H
+            saveSettings()
+        end}
+)
+z:AddToggle(
+    {
+        Name = "Clear Notifier",
+        Default = _G.Settings.webhook,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.webhook = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(_G.Settings.webhookspeed) do
+                        if not _G.Settings.webhook then
+                            break
+                        end
+                        if
+                            game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.ResultUI.Visible ==
+                                true
+                         then
+                            _G.Name = game.Players.LocalPlayer.Name .. "StatDisplay"
+                            function webhook(_, a0)
+                                local request = http_request or request or HttpPost or syn.request
+                                request(
+                                    {
+                                        Url = _G.Settings.webhookurl,
+                                        Method = "POST",
+                                        Headers = {["Content-Type"] = "application/json"},
+                                        Body = game:GetService("HttpService"):JSONEncode({embeds = {_}, content = a0})
+                                    }
+                                )
+                            end
+                            local _ = {
+                                ["title"] = "GAME CLEAR",
+                                ["type"] = "rich",
+                                ["thumbnail"] = {
+                                    ["url"] = "https://cdn.discordapp.com/attachments/712476827829927999/1016682953964802078/IMG_20220524_192236_677.png"
+                                },
+                                ["description"] = "Character Info / Session Info:",
+                                ["fields"] = {
+                                    {
+                                        ["name"] = "💥 My Level",
+                                        ["value"] = game:GetService("HttpService"):JSONDecode(
+                                            game.Players.LocalPlayer.leaderstats.Level.Value
+                                        )
+                                    },
+                                    {
+                                        ["name"] = "⚠️ Exploit Detected",
+                                        ["value"] = game:GetService("HttpService"):JSONDecode(
+                                            game.ReplicatedStorage[_G.Name].ExploitsDetected.Value
+                                        )
+                                    },
+                                    {
+                                    ["name"] = "⚠️Minutes Played Today",
+                                    ["value"] = game:GetService("HttpService"):JSONDecode(
+                                            game.ReplicatedStorage[_G.Name].MinutesPlayedToday.Value
+                                    )
+                                    },
+                                    {
+                                        ["name"] = "Time Challenge High Score",
+                                        ["value"] = game:GetService("HttpService"):JSONDecode(
+                                            game.ReplicatedStorage[_G.Name].TimeChallengeHighScore.Value
+                                            )
+                                    }, 
+                                    {
+                                        ["name"] = "Deaths",
+                                        ["value"] = game:GetService("HttpService"):JSONDecode(
+                                            game.ReplicatedStorage[_G.Name].Deaths.Value
+                                            )
+                                    }, 
+                                                                                     
+                                    {
+                                        ["name"] = "💠 Infinite Record",
+                                        ["value"] = game:GetService("HttpService"):JSONDecode(
+                                            game.ReplicatedStorage[_G.Name].InfiniteRecord.Value
+                                        )
+                                    },
+                                    {
+                                        ["name"] = "🌌 Dimension Clear",
+                                        ["value"] = game:GetService("HttpService"):JSONDecode(
+                                            game.ReplicatedStorage[_G.Name].StageClear.Value
+                                        )
+                                    },
+                                },
+                                ["timestamp"] = DateTime.now():ToIsoDate()
+                            }
+                            webhook(_, "<@" .. _G.Settings.dsuser .. ">" .. _G.Settings.otherds)
+                        end
+                    end
+                end
+            )
+        end
+    }
+)
+z:AddToggle(
+    {
+        Name = "Raid Notifier",
+        Default = _G.Settings.raidwebhook,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.raidwebhook = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(_G.Settings.webhookspeed) do
+                        if not _G.Settings.raidwebhook then
+                            break
+                        end
+                        if
+                            game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.RaidResultUI.Visible ==
+                                true
+                         then
+                            _G.Name = game.Players.LocalPlayer.Name .. "StatDisplay"
+                            function webhook(_, a0)
+                                local request = http_request or request or HttpPost or syn.request
+                                request(
+                                    {
+                                        Url = _G.Settings.webhookurl,
+                                        Method = "POST",
+                                        Headers = {["Content-Type"] = "application/json"},
+                                        Body = game:GetService("HttpService"):JSONEncode({embeds = {_}, content = a0})
+                                    }
+                                )
+                            end
+                            local _ = {
+                                ["title"] = "RAID & BOSSRUSH CLEAR",
+                                ["type"] = "rich",
+                                ["thumbnail"] = {
+                                    ["url"] = "https://cdn.discordapp.com/attachments/712476827829927999/1016682953964802078/IMG_20220524_192236_677.png"
+                                },
+                                ["description"] = "Character Info / Session Info:",
+                                ["fields"] = {
+                                    {
+                                        ["name"] = "⚠️ Exploit Detected",
+                                        ["value"] = game:GetService("HttpService"):JSONDecode(
+                                            game.ReplicatedStorage[_G.Name].ExploitsDetected.Value
+                                        )
+                                    },
+                                    {
+                                        ["name"] = "🌀 Boss Rush Clear",
+                                        ["value"] = game:GetService("HttpService"):JSONDecode(
+                                            game.ReplicatedStorage[_G.Name].BossRushClears.Value
+                                        )
+                                    },
+                                    {
+                                        ["name"] = "🎟️ Boss Rush Ticket",
+                                        ["value"] = game:GetService("HttpService"):JSONDecode(
+                                            game.ReplicatedStorage[_G.Name].BossRushFreeEntry.Value
+                                        )
+                                    },
+                                    {
+                                        ["name"] = "🌀 Raid Clear",
+                                        ["value"] = game:GetService("HttpService"):JSONDecode(
+                                            game.ReplicatedStorage[_G.Name].RaidClears.Value
+                                        )
+                                    }
+                                },
+                                ["timestamp"] = DateTime.now():ToIsoDate()
+                            }
+                            webhook(_, "<@" .. _G.Settings.dsuser .. ">" .. _G.Settings.otherds)
+                        end
+                    end
+                end
+            )
+        end
+    }
+)
+z:AddToggle(
+    {
+        Name = "Level Notifier",
+        Default = _G.Settings.levelwebhook,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.levelwebhook = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(3) do
+                        if not _G.Settings.levelwebhook then
+                            break
+                        end
+                        if
+                            game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.LevelUpImage.Visible ==
+                                true
+                         then
+                            _G.Name = game.Players.LocalPlayer.Name .. "StatDisplay"
+                            function webhook(_, a0)
+                                local request = http_request or request or HttpPost or syn.request
+                                request(
+                                    {
+                                        Url = _G.Settings.webhookurl,
+                                        Method = "POST",
+                                        Headers = {["Content-Type"] = "application/json"},
+                                        Body = game:GetService("HttpService"):JSONEncode({embeds = {_}, content = a0})
+                                    }
+                                )
+                            end
+                            local _ = {
+                                ["title"] = "🆙 YOU HAVE LEVELED",
+                                ["type"] = "rich",
+                                ["thumbnail"] = {
+                                    ["url"] = "https://cdn.discordapp.com/attachments/712476827829927999/1016682953964802078/IMG_20220524_192236_677.png"
+                                },
+                                ["description"] = "",
+                                ["fields"] = {
+                                    {
+                                        ["name"] = "Your are now:",
+                                        ["value"] = game:GetService("HttpService"):JSONDecode(
+                                            game.Players.LocalPlayer.leaderstats.Level.Value
+                                        )
+                                    }
+                                },
+                                ["timestamp"] = DateTime.now():ToIsoDate()
+                            }
+                            webhook(_, "<@" .. _G.Settings.dsuser .. ">" .. _G.Settings.otherds)
+                        end
+                    end
+                end
+            )
+        end
+    }
+)
 z:AddSlider(
     {Name = "Send Delay", Default = _G.Settings.webhookspeed, Min = 10, Max = 10, Color = Color3.fromRGB(98, 0, 182), Callback = function(H)
             _G.Settings.webhookspeed = H
@@ -2219,7 +2163,6 @@ z:AddTextbox(
             saveSettings()
         end}
 )
-D:AddLabel("select behind recommend")
 z:AddTextbox(
     {
         Name = "Put @here or @everyone ",
@@ -2231,6 +2174,8 @@ z:AddTextbox(
         end
     }
 )
+ --Webhook ]]--
+D:AddLabel("select behind recommend")
 G:AddButton(
     {Name = "Script by Sun Hub", Callback = function()
             setclipboard("Sun Hub")
@@ -2253,7 +2198,7 @@ G:AddTextbox(
         end}
 )
 
-G:AddLabel("LastestUpdate : 9/05/2022 ")
+G:AddLabel("LastestUpdate : 9/14/2022 ")
 
 u:MakeNotification({Name = "The Intruders", Content = "Game: Anime Dimension", Time = 15})
 u:Init()
