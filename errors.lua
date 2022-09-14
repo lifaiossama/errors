@@ -159,7 +159,7 @@ local q = {
 }
 local r = {"Easy", "Hard", "Nightmare", "Infinite"}
 local s = {"Capsule Series 1", "Raid Capsule", "Gear 5 Fluffy Capsule", "Esper Capsule"}
-local t = { "Tengoku Raid", "Hirito Raid", "Titan Raid", "Esper Raid" ,"Demon Lord Raid","Yomiichi Raid", "Christmas Raid","Combat Titan Raid", "Infinity Nojo Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid"}
+local t = { "Tengu Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid", "Tengoku Raid", "Hirito Raid", "Titan Raid", "Esper Raid" ,"Demon Lord Raid", "Yomiichi Raid", "Christmas Raid","Combat Titan Raid", "Infinity Nojo Raid"}
 local u = loadstring(game:HttpGet("https://www.klgrth.io/paste/gs77p/raw"))()
 local v = u:MakeWindow({Name = "The Intruders", HidePremium = true, IntroEnabled = false})
 local w = v:MakeTab({Name = "Main", PremiumOnly = false})
@@ -1923,7 +1923,7 @@ D:AddSlider(
 )
 
 
---[[ Webhook
+-- Webhook
 z:AddTextbox(
     {Name = "Webhook Url", Default = _G.Settings.webhookurl, TextDisappear = false, Callback = function(H)
             _G.Settings.webhookurl = H
@@ -2174,7 +2174,7 @@ z:AddTextbox(
         end
     }
 )
- --Webhook ]]--
+ --Webhook 
 D:AddLabel("select behind recommend")
 G:AddButton(
     {Name = "Script by Sun Hub", Callback = function()
