@@ -474,7 +474,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Nightmare",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Slime Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = true
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
