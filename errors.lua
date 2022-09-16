@@ -171,7 +171,7 @@ local F = v:MakeTab({Name = "Afk Farm", PremiumOnly = false})
 local A = v:MakeTab({Name = "Auto Sell", PremiumOnly = false})
 local B = v:MakeTab({Name = "Auto Spin", PremiumOnly = false})
 local C = v:MakeTab({Name = "Auto Claim", PremiumOnly = false})
---local z = v:MakeTab({Name = "Webhook", PremiumOnly = false})
+local z = v:MakeTab({Name = "Webhook", PremiumOnly = false})
 local G = v:MakeTab({Name = "Credits", PremiumOnly = false})
 
 --[[
@@ -521,7 +521,7 @@ w:AddToggle(
             saveSettings()
             task.spawn(
                 function()
-                    while task.wait(7) do
+                    while task.wait(27) do
                         if not _G.Settings.Autocustom then
                             break
                         end
