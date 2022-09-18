@@ -67,6 +67,4 @@ _G.Settings = {
     Autoraid = false,
     kickrejoin = true
 }
-
-
 loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/errors.lua"))()
