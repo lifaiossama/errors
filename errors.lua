@@ -160,7 +160,7 @@ local q = {
 local r = {"Easy", "Hard", "Nightmare", "Infinite"}
 local s = {"Capsule Series 1", "Raid Capsule", "Gear 5 Fluffy Capsule", "Esper Capsule"}
 local t = { "Tengu Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid", "Tengoku Raid", "Hirito Raid", "Titan Raid", "Esper Raid" ,"Demon Lord Raid", "Yomiichi Raid", "Christmas Raid","Combat Titan Raid", "Infinity Nojo Raid"}
-local u = loadstring(game:HttpGet("https://www.klgrth.io/paste/gs77p/raw"))()
+local u = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
 local v = u:MakeWindow({Name = "The Intruders", HidePremium = true, IntroEnabled = false})
 local w = v:MakeTab({Name = "Main", PremiumOnly = false})
 local x = v:MakeTab({Name = "Extra", PremiumOnly = false})
@@ -190,11 +190,11 @@ w:AddToggle(
             saveSettings()
             task.spawn(
                 function()
-                    while task.wait(7) do
+                    while task.wait(1) do
                         if not _G.Settings.Autolvl then
                             break
                         end
-                        wait(15)
+                        wait(10)
                         Lvl = game.Players.LocalPlayer.leaderstats.Level.Value
                         if Lvl > 0 and Lvl < 6 then
                             wait(1)
@@ -474,7 +474,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Nightmare",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Slime Dimension",
-                                    ["Hardcore"] = true
+                                    ["Hardcore"] = false
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -531,7 +531,7 @@ w:AddToggle(
                                 ["Difficulty"] = _G.Settings.CustomDifficulty,
                                 ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                 ["MapName"] = _G.Settings.custommapselect,
-                                ["Hardcore"] = false
+                                ["Hardcore"] = true
                             }
                         )
                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -543,6 +543,7 @@ w:AddToggle(
         end
     }
 )
+
 w:AddToggle(
     {
         Name = "🌀 Farm Raid",
@@ -720,6 +721,18 @@ w:AddToggle(
         end
     }
 )
+w:AddButton({
+	Name = "Teleport to Lobby",
+    Default = _G.Settings.backtolobby,
+	Callback = function(H)
+        _G.Settings.backtolobby = H
+        saveSettings()
+        game:GetService("TeleportService"):Teleport(6938803436, LocalPlayer)
+  	end    
+})
+w:AddLabel("Specific Map = Hardcore")
+w:AddLabel("Auto Level = Normal")
+
 --[[
 w:AddToggle(
     {
@@ -1215,7 +1228,8 @@ y:AddDropdown({Name = "Select Main Character", Default = _G.Settings.SelectedMai
     saveSettings()
 end})
 task.spawn(function()
-    while task.wait(25) do
+    while task.wait(1) do
+        if game:GetService("Players").LocalPlayer.PlayerGui.MainGui.CenterUIFrame.PlayButtonsFrame.Frame.SpeedRaidBanner.SpeedRaidBannerOpenText.text:find('Ready in') then
         if _G.Settings.AutoEquipMCharacter and _G.Settings.SelectedMainCharacter then
             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                 "EquipCharacter",
@@ -1223,6 +1237,7 @@ task.spawn(function()
             )
         end
     end
+end
 end)
 y:AddToggle(
     {
@@ -1244,7 +1259,8 @@ y:AddDropdown({Name = "Select Assist Character 2", Default = _G.Settings.Selecte
     saveSettings()
 end})
 task.spawn(function()
-    while task.wait(26) do
+    while task.wait(1) do
+        if game:GetService("Players").LocalPlayer.PlayerGui.MainGui.CenterUIFrame.PlayButtonsFrame.Frame.SpeedRaidBanner.SpeedRaidBannerOpenText.text:find('Ready in') then
         if _G.Settings.AutoEquipACharacter then
             if _G.Settings.SelectedAssitCharacter1 then
                 game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -1261,6 +1277,7 @@ task.spawn(function()
                 )
             end
         end
+    end
     end
 end)
 y:AddToggle(
@@ -2198,7 +2215,7 @@ G:AddTextbox(
         end}
 )
 
-G:AddLabel("LastestUpdate : 9/14/2022 ")
+G:AddLabel("LastestUpdate : 9/18/2022 ")
 
 u:MakeNotification({Name = "The Intruders", Content = "Game: Anime Dimension", Time = 15})
 u:Init()
