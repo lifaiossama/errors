@@ -68,11 +68,5 @@ _G.Settings = {
     kickrejoin = true
 }
 
-game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(s)
-    if s == Enum.TeleportState.Started then
-        pcall(function() -- cause of shitty syn libary
-            syn.queue_on_teleport(loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/errors.lua"))())
-        end)
-    end
-end)
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/errors.lua"))()
