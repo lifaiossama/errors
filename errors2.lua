@@ -3,9 +3,9 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Poopland/Alpha/Loader
 
 repeat wait() until game:IsLoaded()
 _G.Settings = {
-    Autoleave = true,
-    kickrejoin = true,
-    LeaveDungeons = true,
+    Autoleave = false,
+    kickrejoin = false,
+    LeaveDungeons = false,
     SummerEvent = false,
     SummerSpin = false,
     farmraidtoken = false,
@@ -13,7 +13,7 @@ _G.Settings = {
     Raidselectmap = "None",
     distance = 10,
     toggleguikey = "z",
-    Hardcore = false,
+    Hardcore = true,
     afkandraid = false,
     autospingem = false,
     autoclaimrewardraid = false,

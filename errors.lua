@@ -110,6 +110,7 @@ local p = {
     "Megumin",
     "MilimCharacter (Valentine)",
     "MisakaCharacter",
+    "Naruto (Kurama Mode)",
     "Naofumi",
     "Naruto Six Paths",
     "Naruto",
@@ -158,8 +159,8 @@ local q = {
     "Slime Dimension"
 }
 local r = {"Easy", "Hard", "Nightmare", "Infinite"}
-local s = {"Capsule Series 1", "Raid Capsule", "Gear 5 Fluffy Capsule", "Esper Capsule"}
-local t = { "Tengu Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid", "Tengoku Raid", "Hirito Raid", "Titan Raid", "Esper Raid" ,"Demon Lord Raid", "Yomiichi Raid", "Christmas Raid","Combat Titan Raid", "Infinity Nojo Raid"}
+local s = {"Nardo Beast Capsule", "Raid Capsule", "Gear 5 Fluffy Capsule","Cursed Sage Capsule","Red Emperor Capsule", "Esper Capsule"}
+local t = { "Tengu Raid", "Nardo Beast Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid", "Tengoku Raid", "Hirito Raid", "Titan Raid", "Esper Raid" ,"Demon Lord Raid", "Yomiichi Raid", "Christmas Raid","Combat Titan Raid", "Infinity Nojo Raid"}
 local u = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
 local v = u:MakeWindow({Name = "The Intruders", HidePremium = true, IntroEnabled = false})
 local w = v:MakeTab({Name = "Main", PremiumOnly = false})
@@ -531,7 +532,7 @@ w:AddToggle(
                                 ["Difficulty"] = _G.Settings.CustomDifficulty,
                                 ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                 ["MapName"] = _G.Settings.custommapselect,
-                                ["Hardcore"] = true
+                                ["Hardcore"] = _G.Settings.Hardcore
                             }
                         )
                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -1220,6 +1221,12 @@ B:AddToggle(
             )
         end
     }
+)
+y:AddToggle(
+    {Name = "Hardcore", Default = _G.Settings.Hardcore, Color = Color3.fromRGB(98, 0, 182), Callback = function(H)
+            _G.Settings.Hardcore = H
+            saveSettings()
+        end}
 )
 y:AddToggle(
     {Name = "Friends Only", Default = _G.Settings.FriendsOnly, Color = Color3.fromRGB(98, 0, 182), Callback = function(H)
