@@ -731,8 +731,6 @@ w:AddButton({
         game:GetService("TeleportService"):Teleport(6938803436, LocalPlayer)
   	end    
 })
-w:AddLabel("Specific Map = Hardcore")
-w:AddLabel("Auto Level = Normal")
 w:AddButton(
     {Name = "For Auto execute", Callback = function()
             setclipboard("https://youtu.be/o3VaCa7CcoA")
