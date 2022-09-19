@@ -205,7 +205,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Easy",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Titan Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -220,7 +220,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Hard",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Titan Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -235,7 +235,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Nightmare",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Titan Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -250,7 +250,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Easy",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Demon Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -265,7 +265,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Hard",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Demon Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -280,7 +280,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Nightmare",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Demon Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -295,7 +295,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Easy",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Curse Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -310,7 +310,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Hard",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Curse Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -325,7 +325,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Nightmare",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Curse Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -340,7 +340,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Easy",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Villain Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -355,7 +355,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Hard",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Villain Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -370,7 +370,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Nightmare",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Villain Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -385,7 +385,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Easy",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Sword Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -400,7 +400,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Nightmare",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Sword Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -415,7 +415,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Easy",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Ghoul Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -430,7 +430,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Nightmare",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Ghoul Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -445,7 +445,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Easy",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Fate Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -460,7 +460,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Nightmare",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Fate Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
@@ -475,7 +475,7 @@ w:AddToggle(
                                     ["Difficulty"] = "Nightmare",
                                     ["FriendsOnly"] = _G.Settings.FriendsOnly,
                                     ["MapName"] = "Slime Dimension",
-                                    ["Hardcore"] = false
+                                    ["Hardcore"] = _G.Settings.Hardcore
                                 }
                             )
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
