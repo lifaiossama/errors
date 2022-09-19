@@ -75,7 +75,8 @@ local p = {
     "Alice",
     "All Might",
     "Artoria",
-    "Asta","Astolfo Summer Character",
+    "Asta",
+    "Astolfo Summer Character",
     "AsunaCharacter",
     "Attack Titan",
     "Bakugo",
@@ -731,7 +732,11 @@ w:AddButton({
 })
 w:AddLabel("Specific Map = Hardcore")
 w:AddLabel("Auto Level = Normal")
-
+w:AddButton(
+    {Name = "For Auto execute", Callback = function()
+            setclipboard("https://youtu.be/o3VaCa7CcoA")
+        end}
+)
 --[[
 w:AddToggle(
     {
@@ -999,7 +1004,7 @@ D:AddToggle(
                         end
                         pcall(
                             function()
-                                game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+                                game.Players.LocalPlayer.Character.Humanoid:ChangeState(16)
                                 game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
                             end
                         )
@@ -1053,7 +1058,7 @@ D:AddToggle(
                         end
                         pcall(
                             function()
-                                game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+                                game.Players.LocalPlayer.Character.Humanoid:ChangeState(16)
                                 game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
                             end
                         )
