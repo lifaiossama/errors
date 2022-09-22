@@ -470,7 +470,23 @@ w:AddToggle(
                                 "TeleportPlayers"
                             )
                         end
-                        if Lvl > 105 then
+                        if Lvl > 105 and Lvl < 112 then
+                            wait(1)
+                            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
+                                "CreateRoom",
+                                {
+                                    ["Difficulty"] = "easy",
+                                    ["FriendsOnly"] = _G.Settings.FriendsOnly,
+                                    ["MapName"] = "Slime Dimension",
+                                    ["Hardcore"] = _G.Settings.Hardcore
+                                }
+                            )
+                            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
+                                "TeleportPlayers"
+                            )
+                            
+                        end
+                        if Lvl > 113 then
                             wait(1)
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                                 "CreateRoom",
@@ -484,7 +500,6 @@ w:AddToggle(
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                                 "TeleportPlayers"
                             )
-                            
                         end
                     end
                 end
