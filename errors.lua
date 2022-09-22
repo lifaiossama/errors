@@ -22,6 +22,9 @@ function loadSettings()
     end
 end
 loadSettings()
+local function MainRemote(...)
+    return  game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(...)
+end
 local e = game:GetService("ReplicatedStorage")
 local f = game:GetService("VirtualInputManager")
 local g = game:GetService("Players")
@@ -183,7 +186,7 @@ Callback = <function> - The function of the colorpicker.
 
 w:AddToggle(
     {
-        Name = "🌀 Auto Level",
+        Name = "💥 Auto Level",
         Default = _G.Settings.Autolvl,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
@@ -491,7 +494,7 @@ w:AddToggle(
 )
 w:AddToggle(
     {
-        Name = "🌀 Farm Time Challenge",
+        Name = "💥 Farm Time Challenge",
         Default = _G.Settings.Autotrial,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
@@ -514,7 +517,7 @@ w:AddToggle(
 )
 w:AddToggle(
     {
-        Name = "🌀 Farm Specific Map",
+        Name = "💥 Farm Specific Map",
         Default = _G.Settings.Autocustom,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
@@ -547,7 +550,7 @@ w:AddToggle(
 
 w:AddToggle(
     {
-        Name = "🌀 Farm Raid",
+        Name = "💥 Farm Raid",
         Default = _G.Settings.Autoraid,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
@@ -579,7 +582,7 @@ w:AddToggle(
 )
 F:AddToggle(
     {
-        Name = "Farm Raid + AFK",
+        Name = "💥 Farm Raid + AFK",
         Default = _G.Settings.afkandraid,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
@@ -632,7 +635,7 @@ F:AddToggle(
 )
 F:AddToggle(
     {
-        Name = "Farm Raid Token",
+        Name = "💥 Farm Raid Token",
         Default = _G.Settings.farmraidtoken,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
@@ -674,7 +677,7 @@ F:AddToggle(
 F:AddLabel("If You Want Farm Gem Untoggle Farm Raid Token")
 w:AddToggle(
     {
-        Name = "🌀 Farm Boss Rush",
+        Name = "💥 Farm Boss Rush",
         Default = _G.Settings.Autoboss,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
@@ -697,7 +700,7 @@ w:AddToggle(
 )
 w:AddToggle(
     {
-        Name = "🌀 Farm Speed Raid (Auto Random Character)",
+        Name = "💥 Farm Speed Raid (Auto Random Character)",
         Default = _G.Settings.Autospeedraid,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
@@ -1491,67 +1494,9 @@ C:AddToggle(
                         if not _G.Settings.SummerEvent then
                             break
                         end
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimOnlineReward",
-                            "OnlineReward_1"
-                         
-                         )
-                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimOnlineReward",
-                            "OnlineReward_2"
-                         
-                         )
-                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimOnlineReward",
-                            "OnlineReward_3"
-                         
-                         )
-                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimOnlineReward",
-                            "OnlineReward_4"
-                         
-                         )
-                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimOnlineReward",
-                            "OnlineReward_5"
-                         
-                         )
-                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimOnlineReward",
-                            "OnlineReward_6"
-                         
-                         )
-                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimOnlineReward",
-                            "OnlineReward_7"
-                         
-                         )
-                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimOnlineReward",
-                            "OnlineReward_8"
-                         
-                         )
-                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimOnlineReward",
-                            "OnlineReward_9"
-                         
-                         )
-                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimOnlineReward",
-                            "OnlineReward_10"
-                         
-                         )
-                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimOnlineReward",
-                            "OnlineReward_11"
-                         
-                         )
-                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimOnlineReward",
-                            "OnlineReward_12"
-                         
-                         )
-                                                                                                                                                                                                                                                                                                            
+						for i  = 1,12 do 
+                          MainRemote("ClaimOnlineReward","OnlineReward_" .. i)
+			            end                                                                                                                                                                                                                                                                                       
                          
                     end
                 end
@@ -1573,22 +1518,10 @@ C:AddToggle(
                         if not _G.Settings.Autoclaimquest then
                             break
                         end
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "CompleteDailyQuest",
-                            "DailyQuest_Login"
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "CompleteDailyQuest",
-                            "DailyQuest_DungeonClear"
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "CompleteDailyQuest",
-                            "DailyQuest_Enemies"
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "CompleteDailyQuest",
-                            "DailyQuest_TimeChallenge"
-                        )
+						MainRemote("CompleteDailyQuest","DailyQuest_Login")
+						MainRemote("CompleteDailyQuest","DailyQuest_DungeonClear")
+						MainRemote("CompleteDailyQuest","DailyQuest_Enemies")
+						MainRemote("CompleteDailyQuest","DailyQuest_TimeChallenge") -- i was lazy now
                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                             "CompleteDailyQuest",
                             "DailyQuest_Raid"
@@ -1617,52 +1550,20 @@ C:AddToggle(
             saveSettings()
             task.spawn(
                 function()
-                    while task.wait(1) do
-                        if not _G.Settings.autoclaimrewardspeed then
+                    while task.wait(1) do 
+						if not _G.Settings.autoclaimrewardspeed then
                             break
                         end
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimWeeklySpeedRaidReward",
-                            1
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimWeeklySpeedRaidReward",
-                            2
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimWeeklySpeedRaidReward",
-                            3
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimWeeklySpeedRaidReward",
-                            4
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimWeeklySpeedRaidReward",
-                            5
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimWeeklySpeedRaidReward",
-                            6
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimWeeklySpeedRaidReward",
-                            7
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimWeeklySpeedRaidReward",
-                            8
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "ClaimWeeklySpeedRaidReward",
-                            9
-                        )
+						for i = 1,9 do 
+							MainRemote("ClaimWeeklySpeedRaidReward",i)
+						end
                     end
                 end
             )
         end
     }
 )
+
 C:AddToggle(
     {
         Name = "Daily Raid Ticket",
@@ -1673,13 +1574,11 @@ C:AddToggle(
             saveSettings()
             task.spawn(
                 function()
-                    while task.wait(1) do
+                    while _G.Settings.autoclaimrewardraid  do
                         if not _G.Settings.autoclaimrewardraid then
                             break
                         end
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "GiveFreeDailyGemFromShop"
-                        )
+						MainRemote("GiveFreeDailyGemFromShop")
                     end
                 end
             )
@@ -2201,12 +2100,6 @@ z:AddTextbox(
     }
 )
  --Webhook 
-D:AddLabel("select behind recommend")
-G:AddButton(
-    {Name = "Script by Sun Hub", Callback = function()
-            setclipboard("Sun Hub")
-        end}
-)
 G:AddButton(
     {Name = "Updating And More Features By Tozxart", Callback = function()
             setclipboard("ToZx#1217")
