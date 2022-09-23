@@ -163,7 +163,7 @@ local q = {
 }
 local r = {"Easy", "Hard", "Nightmare", "Infinite"}
 local s = {"Nardo Beast Capsule", "Raid Capsule", "Gear 5 Fluffy Capsule","Cursed Sage Capsule","Red Emperor Capsule", "Esper Capsule"}
-local t = { "Tengu Raid", "Nardo Beast Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid", "Tengoku Raid", "Hirito Raid", "Titan Raid", "Esper Raid" ,"Demon Lord Raid", "Yomiichi Raid", "Christmas Raid","Combat Titan Raid", "Infinity Nojo Raid"}
+local t = { "Tengu Raid", "Nardo Beast Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid", "Hirito Raid", "Titan Raid"}
 local u = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
 local v = u:MakeWindow({Name = "The Intruders", HidePremium = true, IntroEnabled = false})
 local w = v:MakeTab({Name = "Main", PremiumOnly = false})
@@ -1396,6 +1396,7 @@ x:AddToggle(
         end
     }
 )
+
 x:AddToggle(
     {
         Name = "Auto leave",
@@ -1419,32 +1420,32 @@ x:AddToggle(
         end
     }
 )
-x:AddLabel("☝️ This will rejoin automatically every 14 Minutes")
-x:AddToggle(
-    {
-        Name = "Leave Dungeon",
-        Default = _G.Settings.LeaveDungeon,
-        Color = Color3.fromRGB(98, 0, 182),
-        Callback = function(H)
-            _G.Settings.LeaveDungeons = H
-            saveSettings()
-            task.spawn(
-                function()
-                    while task.wait(1) do
-                        if not _G.Settings.LeaveDungeons then
-                            break
-                        end
-                        while wait() do
-                            game:GetService("ReplicatedStorage").RemoteEvents.MainRemoteEvent:FireServer(
-                                "LeaveDungeons"
-                            )                            
-                         end                                                                                                                                                                                                                                                                       
-                    end
-                end
-            )
-        end
-    }
-)
+x:AddLabel("☝️ if your game won't teleport you back to main lobby active it")                
+-- x:AddToggle(
+--     {
+--         Name = "Leave Dungeon",
+--         Default = _G.Settings.LeaveDungeon,
+--         Color = Color3.fromRGB(98, 0, 182),
+--         Callback = function(H)
+--             _G.Settings.LeaveDungeons = H
+--             saveSettings()
+--             task.spawn(
+--                 function()
+--                     while task.wait(1) do
+--                         if not _G.Settings.LeaveDungeons then
+--                             break
+--                         end
+--                         while wait() do
+--                             game:GetService("ReplicatedStorage").RemoteEvents.MainRemoteEvent:FireServer(
+--                                 "LeaveDungeons"
+--                             )                            
+--                          end                                                                                                                                                                                                                                                                       
+--                     end
+--                 end
+--             )
+--         end
+--     }
+-- )
 x:AddToggle(
     {
         Name = "Auto Retry",
@@ -1469,7 +1470,7 @@ x:AddToggle(
             )
         end
     }
-)
+) 
 x:AddToggle(
     {
         Name = "Auto Reduce Damage 20%",
@@ -1488,6 +1489,185 @@ x:AddToggle(
                             game:GetService("ReplicatedStorage").RemoteEvents.MainRemoteEvent:FireServer(
                                 "SetMobileDamageReductionStat"
                             )
+                         end                                                                                                                                                                                                                                                                       
+                    end
+                end
+            )
+        end
+    }
+)
+x:AddParagraph("Anti lag","👇 If you activate them you can't turn them off until you Turn off the toggle and restart the game (the Auto farm will keep work)")
+x:AddToggle(
+    {
+        Name = "Anti Lag",
+        Default = _G.Settings.antilag,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.antilag = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(1) do
+                        if not _G.Settings.antilag then
+                            break
+                        end
+                            for _, v in pairs(game:GetService("Workspace"):GetDescendants()) do
+                                if v:IsA("BasePart") and not v.Parent:FindFirstChild("Humanoid") then
+                                    v.Material = Enum.Material.SmoothPlastic
+                                    if v:IsA("Texture") then
+                                        v:Destroy()
+                                    end
+                                end
+                            end
+                            
+                            local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
+                            local g = game
+                            local w = g.Workspace
+                            local l = g.Lighting
+                            local t = w.Terrain
+                            sethiddenproperty(l,"Technology",2)
+                            sethiddenproperty(t,"Decoration",false)
+                            t.WaterWaveSize = 0
+                            t.WaterWaveSpeed = 0
+                            t.WaterReflectance = 0
+                            t.WaterTransparency = 0
+                            l.GlobalShadows = false
+                            l.FogEnd = 9e9
+                            l.Brightness = 0
+                            settings().Rendering.QualityLevel = "Level01"
+                            for i, v in pairs(g:GetDescendants()) do
+                                if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+                                    v.Material = "Plastic"
+                                    v.Reflectance = 0
+                                elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
+                                    v.Transparency = 1
+                                elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+                                    v.Lifetime = NumberRange.new(0)
+                                elseif v:IsA("Explosion") then
+                                    v.BlastPressure = 1
+                                    v.BlastRadius = 1
+                                elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+                                    v.Enabled = false
+                                elseif v:IsA("MeshPart") then
+                                    v.Material = "Plastic"
+                                    v.Reflectance = 0
+                                    v.TextureID = 10385902758728957
+                                end
+                            end
+                            for i, e in pairs(l:GetChildren()) do
+                                if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+                                    e.Enabled = false
+                                    while task.wait(20000) do
+                                        prin('anti lag is off')
+                                    end
+                                end
+                            end
+                            
+                         end                                                                                                                                                                                                                                                                       
+                    end
+            )
+        end
+    }
+)
+x:AddToggle(
+    {
+        Name = "FPS & GPU Reduce",
+        Default = _G.Settings.FPSGPU,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.FPSGPU = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(1) do
+                        if not _G.Settings.FPSGPU then
+                            break
+                        end
+                        while wait() do
+                            local UserInputService = game:GetService("UserInputService")
+                            local RunService = game:GetService("RunService")
+                            
+                            local WindowFocusReleasedFunction = function()
+                                RunService:Set3dRenderingEnabled(false)
+                                setfpscap(10)
+                                return
+                            end
+                            
+                            local WindowFocusedFunction = function()
+                                RunService:Set3dRenderingEnabled(true)
+                                setfpscap(360)
+                                return
+                            end
+                            
+                            local Initialize = function()
+                                UserInputService.WindowFocusReleased:Connect(WindowFocusReleasedFunction)
+                                UserInputService.WindowFocused:Connect(WindowFocusedFunction)
+                                return
+                            end
+                            Initialize()
+                            while wait(999999) do
+                            end
+                         end                                                                                                                                                                                                                                                                       
+                    end
+                end
+            )
+        end
+    }
+)
+x:AddToggle(
+    {
+        Name = "Black Screen",
+        Default = _G.Settings.balckscreen,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.balckscreen = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(1) do
+                        if not _G.Settings.balckscreen then
+                            break
+                        end
+                        while wait() do
+-- Services
+local Players = game:GetService("Players")
+local ReplicatedFirst = game:GetService("ReplicatedFirst")
+local TweenService = game:GetService("TweenService")
+
+-- TweenInfo
+local tweenInfo = TweenInfo.new(0.5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut, 0, false)
+
+-- Values
+local player = Players.LocalPlayer 
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- Build Gui
+local screenGui = Instance.new("ScreenGui", playerGui)
+screenGui.IgnoreGuiInset = true
+
+-- Build Gui TextLabel
+local textLabel = Instance.new("TextLabel", screenGui)
+textLabel.Size = UDim2.new(1, 0, 1, 0)
+textLabel.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+textLabel.Font = Enum.Font.Merriweather
+textLabel.TextColor3 = Color3.fromRGB(209, 209, 209)
+textLabel.Text = ""
+textLabel.TextSize = 40
+
+-- Remove the default gui to display ours
+ReplicatedFirst:RemoveDefaultLoadingScreen()
+
+task.wait(5)  -- Force screen to appear for a minimum number of seconds
+if not game:IsLoaded() then game.Loaded:Wait() end -- Wait until the game is loaded. (Another alternative is to count the assets left.)
+
+
+textLabel.Text = "tozx was here" -- Sets the text to appear
+task.wait(30000) -- Time until text fades out
+TweenService:Create(textLabel, tweenInfo, { TextTransparency = 1 }):Play() -- Tweens TextTransparency to 1
+task.wait(30000) -- Time until background fades out
+TweenService:Create(textLabel, tweenInfo, { BackgroundTransparency = 1 }):Play() -- Tweens BackgroundTransparency to 1
+task.wait(tweenInfo.Time) -- Wait the time for the last tween to complete
+screenGui:Destroy() -- Clean up the gui after use.
                          end                                                                                                                                                                                                                                                                       
                     end
                 end
