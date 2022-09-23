@@ -542,7 +542,7 @@ w:AddToggle(
             saveSettings()
             task.spawn(
                 function()
-                    while task.wait(27) do
+                    while task.wait(10) do
                         if not _G.Settings.Autocustom then
                             break
                         end
