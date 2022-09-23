@@ -1573,51 +1573,6 @@ x:AddToggle(
 )
 x:AddToggle(
     {
-        Name = "FPS & GPU Reduce",
-        Default = _G.Settings.FPSGPU,
-        Color = Color3.fromRGB(98, 0, 182),
-        Callback = function(H)
-            _G.Settings.FPSGPU = H
-            saveSettings()
-            task.spawn(
-                function()
-                    while task.wait(1) do
-                        if not _G.Settings.FPSGPU then
-                            break
-                        end
-                        while wait() do
-                            local UserInputService = game:GetService("UserInputService")
-                            local RunService = game:GetService("RunService")
-                            
-                            local WindowFocusReleasedFunction = function()
-                                RunService:Set3dRenderingEnabled(false)
-                                setfpscap(10)
-                                return
-                            end
-                            
-                            local WindowFocusedFunction = function()
-                                RunService:Set3dRenderingEnabled(true)
-                                setfpscap(360)
-                                return
-                            end
-                            
-                            local Initialize = function()
-                                UserInputService.WindowFocusReleased:Connect(WindowFocusReleasedFunction)
-                                UserInputService.WindowFocused:Connect(WindowFocusedFunction)
-                                return
-                            end
-                            Initialize()
-                            while wait(999999) do
-                            end
-                         end                                                                                                                                                                                                                                                                       
-                    end
-                end
-            )
-        end
-    }
-)
-x:AddToggle(
-    {
         Name = "Black Screen",
         Default = _G.Settings.balckscreen,
         Color = Color3.fromRGB(98, 0, 182),
@@ -1677,6 +1632,52 @@ screenGui:Destroy() -- Clean up the gui after use.
         end
     }
 )
+x:AddToggle(
+    {
+        Name = "FPS & GPU Reduce",
+        Default = _G.Settings.FPSGPU,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.FPSGPU = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(1) do
+                        if not _G.Settings.FPSGPU then
+                            break
+                        end
+                        while wait() do
+                            local UserInputService = game:GetService("UserInputService")
+                            local RunService = game:GetService("RunService")
+                            
+                            local WindowFocusReleasedFunction = function()
+                                RunService:Set3dRenderingEnabled(false)
+                                setfpscap(10)
+                                return
+                            end
+                            
+                            local WindowFocusedFunction = function()
+                                RunService:Set3dRenderingEnabled(true)
+                                setfpscap(360)
+                                return
+                            end
+                            
+                            local Initialize = function()
+                                UserInputService.WindowFocusReleased:Connect(WindowFocusReleasedFunction)
+                                UserInputService.WindowFocused:Connect(WindowFocusedFunction)
+                                return
+                            end
+                            Initialize()
+                            while wait(999999) do
+                            end
+                         end                                                                                                                                                                                                                                                                       
+                    end
+                end
+            )
+        end
+    }
+)
+
 C:AddToggle(
     {
         Name = "Summer Event",
