@@ -1585,7 +1585,7 @@ x:AddToggle(
                         if not _G.Settings.balckscreen then
                             break
                         end
-                        while wait() do
+                        while wait(3) do
 -- Services
 local Players = game:GetService("Players")
 local ReplicatedFirst = game:GetService("ReplicatedFirst")
