@@ -3,7 +3,7 @@ _G.Settings = {}
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
-local a = "The Intruders"
+local a = "The Intruders_WZ"
 local b = game.Players.LocalPlayer.Name .. "_WorlZero.lua"
 function saveSettings()
     local c = game:GetService("HttpService")
