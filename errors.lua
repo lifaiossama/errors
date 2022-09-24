@@ -2286,6 +2286,7 @@ z:AddTextbox(
             saveSettings()
         end}
 )
+D:AddLabel("select behind recommend")
 z:AddTextbox(
     {
         Name = "Put @here or @everyone ",
@@ -2315,7 +2316,7 @@ G:AddTextbox(
         end}
 )
 
-G:AddLabel("LastestUpdate : 9/18/2022 ")
+G:AddLabel("LastestUpdate : 9/23/2022 ")
 
 u:MakeNotification({Name = "The Intruders", Content = "Game: Anime Dimension", Time = 15})
 u:Init()
