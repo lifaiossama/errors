@@ -1,5 +1,3 @@
-_G.Settings = {}
-
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
