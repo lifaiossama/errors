@@ -164,4 +164,30 @@ if game.PlaceId == 2978693500 then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
     elseif game.PlaceId == 6847034886 then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
+    elseif game.PlaceId == 10795158121 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
+    elseif game.PlaceId == 10727165164 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
+    elseif game.PlaceId == 10651527284 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
+    elseif game.PlaceId == 10651517727 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
+    elseif game.PlaceId == 10014664329 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
+    elseif game.PlaceId == 9944263348 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
+    elseif game.PlaceId == 10089970465 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
+    elseif game.PlaceId == 9944262922 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
+    elseif game.PlaceId == 6510862058 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))() 
+    elseif game.PlaceId == 4526768266 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
+    elseif game.PlaceId == 4050468028 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
+    elseif game.PlaceId == 2727072708 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
+    elseif game.PlaceId == 2727072708 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
     end 
