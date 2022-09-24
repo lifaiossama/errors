@@ -103,7 +103,11 @@ w:AddToggle(
                         if not _G.Settings.Farm then
                             break
                         end
+                        
                         loadstring(game:HttpGet"https://raw.githubusercontent.com/thedragonslayer2/MrJack-Game-List/main/World%20Zero%20-%202727067538.lua")()
+                        while task.wait(20000) do
+                            prin('anti lag is off')
+                        end
                     end
                 end
             )
