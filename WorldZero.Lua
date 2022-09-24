@@ -298,6 +298,11 @@ end
         end
     }
 )
+w:AddButton(
+    {Name = "For Auto execute", Callback = function()
+            game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+        end}
+)
  --Webhook 
 G:AddButton(
     {Name = "Updating And More Features By Tozxart", Callback = function()
