@@ -1,12 +1,12 @@
 _G.Settings = {
-    Farm1 = false
-    Chat = false
-    Blackscreen = false
-    FPSGPU = false
-    Lag = false
-    tozxart2 = false
-    tozxart3 = false
-    tozxart4 = false
+    Farm1 = false,
+    Chat = false,
+    Blackscreen = false,
+    FPSGPU = false,
+    Lag = false,
+    tozxart2 = false,
+    tozxart3 = false,
+    tozxart4 = false,
     acc = false
 }
 
