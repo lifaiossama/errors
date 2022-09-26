@@ -259,7 +259,7 @@ w:AddToggle(
         Default = _G.Settings.Lag,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
-            _G.Settings.Farm = H
+            _G.Settings.Lag = H
             saveSettings()
             task.spawn(
                 function()
