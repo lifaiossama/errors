@@ -1,4 +1,14 @@
-_G.Settings = {}
+_G.Settings = {
+    Farm1 = false
+    Chat = false
+    Blackscreen = false
+    FPSGPU = false
+    Lag = false
+    tozxart2 = false
+    tozxart3 = false
+    tozxart4 = false
+    acc = false
+}
 
 if not game:IsLoaded() then
     game.Loaded:Wait()
