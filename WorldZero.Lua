@@ -79,7 +79,7 @@ local u = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/O
 local v = u:MakeWindow({Name = "The Intruders", HidePremium = true, IntroEnabled = false})
 local w = v:MakeTab({Name = "Main", PremiumOnly = false})
 local G = v:MakeTab({Name = "Credits", PremiumOnly = false})
-
+local x = v:MakeTab({Name = "Extra", PremiumOnly = false})
 --[[
 Name = <string> - The name of the colorpicker.
 Default = <color3> - The default value of the colorpicker.
@@ -92,20 +92,20 @@ Callback = <function> - The function of the colorpicker.
 w:AddToggle(
     {
         Name = "Auto farm",
-        Default = _G.Settings.Farm,
+        Default = _G.Settings.Farm1,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
-            _G.Settings.Farm = H
+            _G.Settings.Farm1 = H
             saveSettings()
             task.spawn(
                 function()
-                    while _G.Settings.Farm  do
-                        if not _G.Settings.Farm then
+                    while _G.Settings.Farm1  do
+                        if not _G.Settings.Farm1 then
                             break
                         end
                         
                         loadstring(game:HttpGet"https://raw.githubusercontent.com/thedragonslayer2/MrJack-Game-List/main/World%20Zero%20-%202727067538.lua")()
-                        while task.wait(20000) do
+                        while task.wait(200) do
                             prin('anti lag is off')
                         end
                     end
@@ -302,6 +302,118 @@ end
         end
     }
 )
+
+
+
+
+
+
+
+x:AddLabel("Invite")
+
+ x:AddToggle(
+    {
+        Name = "tozxart2",
+        Default = _G.Settings.tozxart2,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.tozxart2 = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while _G.Settings.tozxart2  do
+                        if not _G.Settings.tozxart2 then
+                            break
+                        end
+                        game:GetService("ReplicatedStorage").Shared.Party.Invite:FireServer(game:GetService("Players").tozxart2)
+
+                    end
+                end
+            )
+        end
+    }
+)
+x:AddToggle(
+    {
+        Name = "tozxart3",
+        Default = _G.Settings.tozxart3,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.tozxart3 = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while _G.Settings.tozxart3  do
+                        if not _G.Settings.tozxart3 then
+                            break
+                        end
+                        while task.wait(10) do
+                        game:GetService("ReplicatedStorage").Shared.Party.Invite:FireServer(game:GetService("Players").tozxart3)
+                        end
+
+                    end
+                end
+            )
+        end
+    }
+)
+
+x:AddToggle(
+    {
+        Name = "tozxart4",
+        Default = _G.Settings.tozxart4,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.tozxart4 = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while _G.Settings.tozxart4  do
+                        if not _G.Settings.tozxart4 then
+                            break
+                        end
+                        game:GetService("ReplicatedStorage").Shared.Party.Invite:FireServer(game:GetService("Players").tozxart4)
+
+                    end
+                end
+            )
+        end
+    }
+)
+
+
+
+
+
+
+x:AddLabel("accept")
+
+x:AddToggle(
+    {
+        Name = "Accept",
+        Default = _G.Settings.acc,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.acc = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while _G.Settings.acc  do
+                        if not _G.Settings.acc then
+                            break
+                        end
+                        while task.wait(5) do
+                        game:GetService("ReplicatedStorage").Shared.Party.AcceptedInvite:FireServer(game:GetService("Players").tozxart)
+
+                        end
+                    end
+                end
+            )
+        end
+    }
+)
+
+
 w:AddButton(
     {Name = "For Auto execute", Callback = function()
             game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
