@@ -3,11 +3,12 @@ _G.Settings = {
     Chat = false,
     Blackscreen = false,
     FPSGPU = false,
-    Lag = true,
+    Lag = false,
     tozxart2 = false,
     tozxart3 = false,
     tozxart4 = false,
     acc = false
+    QuestClaim = false
 }
 
 if not game:IsLoaded() then
