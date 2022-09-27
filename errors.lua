@@ -1,5 +1,9 @@
 
 _G.Settings = {
+    antilag = false,
+    balckscreen = false,
+    ReduceDamage = false,
+    FPSGPU = fades,
     Autoleave = false,
     kickrejoin = false,
     LeaveDungeons = false,
