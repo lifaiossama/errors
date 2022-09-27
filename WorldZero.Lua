@@ -316,9 +316,30 @@ end
     }
 )
 
-
-
-
+x:AddToggle(
+    {
+        Name = "Quest Claim",
+        Default = _G.Settings.QuestClaim,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.QuestClaim = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(1) do
+                        if not _G.Settings.QuestClaim then
+                            break
+                        end
+						for i  = 1,400 do 
+                            game:GetService("ReplicatedStorage").Shared.Quests.ClaimQuest:FireServer(i)
+			            end                                                                                                                                                                                                                                                                                       
+                         
+                    end
+                end
+            )
+        end
+    }
+)
 
 
 
