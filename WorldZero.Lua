@@ -89,8 +89,8 @@ j.Idled:Connect(
 local u = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
 local v = u:MakeWindow({Name = "The Intruders", HidePremium = true, IntroEnabled = false})
 local w = v:MakeTab({Name = "Main", PremiumOnly = false})
-local G = v:MakeTab({Name = "Credits", PremiumOnly = false})
 local x = v:MakeTab({Name = "Extra", PremiumOnly = false})
+local G = v:MakeTab({Name = "Credits", PremiumOnly = false})
 --[[
 Name = <string> - The name of the colorpicker.
 Default = <color3> - The default value of the colorpicker.
@@ -317,7 +317,7 @@ end
     }
 )
 
-x:AddToggle(
+W:AddToggle(
     {
         Name = "Quest Claim",
         Default = _G.Settings.QuestClaim,
