@@ -1,5 +1,6 @@
 
 _G.Settings = {
+    Autotrial  =false,
     antilag = false,
     balckscreen = false,
     ReduceDamage = false,
@@ -24,6 +25,9 @@ _G.Settings = {
     equipselectmain = false,
     equipselectmain1 = false,
     equipselectmain2 = false,
+    Autoclaimquest = false,
+    AutoEquipMCharacter = false,
+    AutoEquipACharacter = false,
     SelectedMainCharacter = "None",
     SelectedMainCharacter = "None",
     SelectedMainCharacter = "None",
