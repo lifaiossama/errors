@@ -331,7 +331,7 @@ x:AddToggle(
                         if not _G.Settings.QuestClaim then
                             break
                         end
-						for i  = 1,400 do 
+						for i  = 1,99999 do 
                             game:GetService("ReplicatedStorage").Shared.Quests.ClaimQuest:FireServer(i)
 			            end                                                                                                                                                                                                                                                                                       
                          
