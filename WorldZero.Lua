@@ -306,6 +306,9 @@ for i, e in pairs(l:GetChildren()) do
         e.Enabled = false
     end
 end
+while task.wait(20000) do
+    prin('anti lag is off')
+end
                     end
                 end
             )
