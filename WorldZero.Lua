@@ -7,7 +7,7 @@ _G.Settings = {
     tozxart2 = false,
     tozxart3 = false,
     tozxart4 = false,
-    acc = false
+    acc = false,
     QuestClaim = false
 }
 
