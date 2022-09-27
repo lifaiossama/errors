@@ -327,7 +327,7 @@ x:AddToggle(
             saveSettings()
             task.spawn(
                 function()
-                    while task.wait(1) do
+                    while task.wait(20) do
                         if not _G.Settings.QuestClaim then
                             break
                         end
