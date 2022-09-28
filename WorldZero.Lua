@@ -317,7 +317,7 @@ end
         end
     }
 )
-
+game:GetService("ReplicatedStorage").Shared.Quests.ClaimWeeklyReward:FireServer()
 w:AddToggle(
     {
         Name = "Quest Claim",
@@ -361,8 +361,9 @@ x:AddLabel("Invite")
                         if not _G.Settings.tozxart2 then
                             break
                         end
+                        while task.wait(10) do
                         game:GetService("ReplicatedStorage").Shared.Party.Invite:FireServer(game:GetService("Players").tozxart2)
-
+                        end
                     end
                 end
             )
@@ -408,8 +409,9 @@ x:AddToggle(
                         if not _G.Settings.tozxart4 then
                             break
                         end
+                        while task.wait(10) do
                         game:GetService("ReplicatedStorage").Shared.Party.Invite:FireServer(game:GetService("Players").tozxart4)
-
+                        end
                     end
                 end
             )
@@ -438,7 +440,7 @@ x:AddToggle(
                         if not _G.Settings.acc then
                             break
                         end
-                        while task.wait(5) do
+                        while task.wait(10) do
                         game:GetService("ReplicatedStorage").Shared.Party.AcceptedInvite:FireServer(game:GetService("Players").tozxart)
 
                         end
