@@ -4,6 +4,7 @@ _G.Settings = {
     Blackscreen = false,
     FPSGPU = false,
     Lag = false,
+    toggleguikey = "c",
     tozxart2 = false,
     tozxart3 = false,
     tozxart4 = false,
