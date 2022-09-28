@@ -328,7 +328,7 @@ w:AddToggle(
             saveSettings()
             task.spawn(
                 function()
-                    while task.wait(120) do
+                    while task.wait(60) do
                         if not _G.Settings.QuestClaim then
                             break
                         end
@@ -343,6 +343,7 @@ w:AddToggle(
     }
 )
 
+x:AddParagraph("Accept","Active it Only for the main account")
 
 
 x:AddLabel("Invite")
@@ -423,6 +424,7 @@ x:AddToggle(
 
 
 
+x:AddParagraph("Invite","Active it for the other accounts")
 
 x:AddLabel("accept")
 
