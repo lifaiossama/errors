@@ -15,9 +15,6 @@ repeat wait() until game:IsLoaded()
 --         loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua"))()
 --     end)
 -- end
-
-
-
 if game.PlaceId == 2978693500 then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
     elseif game.PlaceId == 5862277651 then
@@ -119,8 +116,6 @@ if game.PlaceId == 2978693500 then
     elseif game.PlaceId == 4526768266 then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
     elseif game.PlaceId == 4050468028 then
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
-    elseif game.PlaceId == 2727072708 then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
     elseif game.PlaceId == 2727072708 then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()

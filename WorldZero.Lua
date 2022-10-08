@@ -343,6 +343,33 @@ w:AddToggle(
     }
 )
 
+w:AddToggle(
+    {
+        Name = "BattlePass Claim",
+        Default = _G.Settings.BattlePass,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.BattlePass = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(60) do
+                        if not _G.Settings.BattlePass then
+                            break
+                        end
+						for i  = 1,40 do 
+game:GetService("ReplicatedStorage").Shared.Battlepass.RedeemItem:FireServer(i,true)
+game:GetService("ReplicatedStorage").Shared.Battlepass.RedeemItem:FireServer(i)
+			            end                                                                                                                                                                                                                                                                                       
+                         
+                    end
+                end
+            )
+        end
+    }
+)
+
+
 x:AddParagraph("Accept","Active it Only for the main account")
 
 
