@@ -233,6 +233,7 @@ local q = {
     "Sword Dimension",
     "Ghoul Dimension",
     "Fate Dimension",
+    "Halloween Dimension",
     "Slime Dimension"
 }
 local r = {"Easy", "Hard", "Nightmare", "Infinite"}
@@ -1291,7 +1292,7 @@ B:AddToggle(
 
 B:AddToggle(
     {
-        Name = "Summer Spin",
+        Name = "Halloween Spin",
         Default = _G.Settings.SummerSpin,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
@@ -1304,8 +1305,10 @@ B:AddToggle(
                             break
                         end
                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "SpinEventReward"
-                        )
+
+                        "SpinEventReward"
+                      )
+
                     end
                 end
             )
@@ -1752,7 +1755,7 @@ x:AddToggle(
 
 C:AddToggle(
     {
-        Name = "Summer Event",
+        Name = "Halloween Event",
         Default = _G.Settings.SummerEvent,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
