@@ -233,7 +233,7 @@ local q = {
     "Sword Dimension",
     "Ghoul Dimension",
     "Fate Dimension",
-    "Halloween Dimension",
+    "Halloween Dimension", 
     "Slime Dimension"
 }
 local r = {"Easy", "Hard", "Nightmare", "Infinite"}
@@ -627,10 +627,10 @@ w:AddToggle(
                                 ["MapName"] = _G.Settings.custommapselect,
                                 ["Hardcore"] = _G.Settings.Hardcore
                             }
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "TeleportPlayers"
-                        )
+                        -- )
+                        -- game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
+                        --     "TeleportPlayers"
+                        -- )
                     end
                 end
             )
