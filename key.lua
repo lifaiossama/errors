@@ -88,7 +88,7 @@ Tab:AddButton({
 })
 Tab:AddButton(
     {Name = "Copy Key Link", Callback = function()
-            setclipboard("https://discord.gg/vfkD5VCRKU")
+            setclipboard("https://www.intruders.ga/key1.html")
             KeyNotification()
         end}
 )
