@@ -70,7 +70,7 @@ Tab:AddTextbox({
     Default = "",
     TextDisappear = true,
     Callback = function(Value)
-        _G.KeyInput = _G.Key
+        _G.KeyInput = Value
     end      
 })
 
