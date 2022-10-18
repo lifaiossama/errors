@@ -83,7 +83,7 @@ end
 
 function CheckKey()
     if _G.KeyInput == _G.Key then
-    loadstring(game:HttpGet(('https://raw.githubusercontent.com/lifaiossama/errors/main/errors.lua')))()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/tozxart/The-Intruders/main/TheIntrudersAuthorizationn.lua')))()
     end
 end
 
@@ -126,5 +126,5 @@ Tab:AddButton(
 )
 
 if isfile("Mykey.txt") and readfile("Mykey.txt") == _G.Key then 
-    loadstring(game:HttpGet(('https://raw.githubusercontent.com/lifaiossama/errors/main/errors.lua')))()
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/tozxart/The-Intruders/main/TheIntrudersAuthorizationn.lua')))()
 end
