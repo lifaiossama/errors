@@ -1,6 +1,34 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "The Intruders", HidePremium = false, SaveConfig = true, IntroEnabled = false, ConfigFolder = "OrionTest"})
 
+
+
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
+local a = "The Intruders"
+local b = game.Players.LocalPlayer.Name .. "key.lua"
+function saveSettings()
+    local c = game:GetService("HttpService")
+    local d = c:JSONEncode(_G.Settings)
+    if writefile then
+        if isfolder(a) then
+            writefile(a .. "\\" .. b, d)
+        else
+            makefolder(a)
+            writefile(a .. "\\" .. b, d)
+        end
+    end
+end
+function loadSettings()
+    local c = game:GetService("HttpService")
+    if isfile(a .. "\\" .. b) then
+        _G.Settings = c:JSONDecode(readfile(a .. "\\" .. b))
+    end
+end
+
+
+
 -- getgenv().KeyInput = "string"
 OrionLib:MakeNotification({
     Name = "Logged in |",
@@ -11,7 +39,7 @@ OrionLib:MakeNotification({
 
 
 
-_G.key = "Hello"
+_G.Key = "Hello"
 _G.KeyInput = "string"
 
 
@@ -29,6 +57,7 @@ function CorrectKeyNotification()
         Image = "rbxassetid://448334599B",
         Time = 5
     })
+return true 
  end
 
  function IncorrectKeyNotification()
@@ -54,7 +83,6 @@ end
 
 function CheckKey()
     if _G.KeyInput == _G.Key then
-        Destroy()
     loadstring(game:HttpGet(('https://raw.githubusercontent.com/lifaiossama/errors/main/errors.lua')))()
     end
 end
@@ -70,6 +98,9 @@ Tab:AddTextbox({
     Default = "",
     TextDisappear = true,
     Callback = function(Value)
+    if not isfile("Mykey.txt") or readfile("Mykey.txt") ~= Value then 
+        writefile("Mykey.txt",Value)
+    end
         _G.KeyInput = Value
     end      
 })
@@ -79,6 +110,7 @@ Tab:AddButton({
     Callback = function()
           CheckKey()
           if _G.KeyInput == _G.Key then
+              
             MakeScriptHub()
             CorrectKeyNotification()
           else
@@ -92,3 +124,7 @@ Tab:AddButton(
             KeyNotification()
         end}
 )
+
+if isfile("Mykey.txt") and readfile("Mykey.txt") == _G.Key then 
+    loadstring(game:HttpGet(('https://raw.githubusercontent.com/lifaiossama/errors/main/errors.lua')))()
+end
