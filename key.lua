@@ -39,8 +39,8 @@ OrionLib:MakeNotification({
 
 
 
-_G.Key = "Hello"
-_G.KeyInput = "string"
+-- _G.Key = "Hello"
+-- _G.KeyInput = "string"
 
 
 
