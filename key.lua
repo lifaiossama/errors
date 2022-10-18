@@ -29,20 +29,12 @@ end
 
 
 
--- getgenv().KeyInput = "string"
 OrionLib:MakeNotification({
     Name = "Logged in |",
     Content = "You are logged in as "..game.Players.LocalPlayer.Name..".",
     Image = "rbxassetid://4483345998",
      Time = 5
     })
-
-
-
--- _G.Key = "Hello"
--- _G.KeyInput = "string"
-
-
 
 
 
