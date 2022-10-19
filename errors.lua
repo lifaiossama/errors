@@ -1704,6 +1704,8 @@ screenGui:Destroy() -- Clean up the gui after use.
                     end
                 end
             )
+            if not _G.Settings.balckscreen then
+                game:GetService("Players").tozxart.PlayerGui.ScreenGui:Destroy()
         end
     }
 )
