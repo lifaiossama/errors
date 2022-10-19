@@ -72,6 +72,7 @@ _G.Settings = {
     Autoraid = false,
     kickrejoin = true
 }
+
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
@@ -239,7 +240,7 @@ local q = {
 local r = {"Easy", "Hard", "Nightmare", "Infinite"}
 local s = {"Nardo Beast Capsule", "Raid Capsule", "Gear 5 Fluffy Capsule","Cursed Sage Capsule","Red Emperor Capsule", "Esper Capsule"}
 local t = { "Tengu Raid", "Nardo Beast Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid", "Hirito Raid", "Titan Raid"}
-local u = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
+local u = loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/ui.lua"))()
 local v = u:MakeWindow({Name = "The Intruders", HidePremium = true, IntroEnabled = false})
 local w = v:MakeTab({Name = "Main", PremiumOnly = false})
 local x = v:MakeTab({Name = "Extra", PremiumOnly = false})
@@ -1704,9 +1705,10 @@ screenGui:Destroy() -- Clean up the gui after use.
                     end
                 end
             )
-            if not _G.Settings.balckscreen then
-                game:GetService("Players").tozxart.PlayerGui.ScreenGui:Destroy()
+            -- if not _G.Settings.balckscreen then
+            --     game:GetService("Players").tozxart.PlayerGui.ScreenGui:Destroy()
         end
+    end
     }
 )
 x:AddToggle(
