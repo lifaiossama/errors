@@ -1,6 +1,9 @@
-
+function Destroy()
+    game:GetService("CoreGui").Orion:Destroy()
+end
                        while _G.Autotrial == true do -- trial
-                        wait(10)
+                        wait(5)
+                        Destroy()
                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                             "TeleportToTimeChallenge"
                         )
@@ -8,7 +11,7 @@
 
 
                        while _G.Autocustom == true do -- map
-                        wait(5)
+                        wait(4)
                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                             "CreateRoom",
                             {
