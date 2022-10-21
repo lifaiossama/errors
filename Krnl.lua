@@ -1,102 +1,68 @@
-
-    _G.Autotrial  = false;
-    _G.Autocustom = true;
-    _G.Autoraid = false;
-    _G.FriendsOnly = false;
-    _G.CustomDifficulty = "Easy"; -- "Easy", "Hard", "Nightmare", "Infinite"
-    _G.Raidselectmap = "Nardo Beast Raid"; -- { "Tengu Raid", "Nardo Beast Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid", "Hirito Raid", "Titan Raid"}
-    _G.Hardcore = false;
-    _G.custommapselect = "Titan Dimension"; --("Infinite Mode","Titan Dimension","Demon Dimension","Curse Dimension","Villain Dimension","Sword Dimension","Ghoul Dimension","Fate Dimension","Halloween Dimension","Slime Dimension")
-
-                       while _G.Autotrial == true do
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "TeleportToTimeChallenge"
-                        )
-                    end
-
-
-                       while _G.Autocustom == true do
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "CreateRoom",
-                            {
-                                ["Difficulty"] = _G.Settings.CustomDifficulty,
-                                ["FriendsOnly"] = _G.Settings.FriendsOnly,
-                                ["MapName"] = _G.Settings.custommapselect,
-                                ["Hardcore"] = _G.Settings.Hardcore
-                            }
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "TeleportPlayers"
-                        )
-                    end
-
-
-                    while _G.Autoraid == true do
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "CreateRoom",
-                            {
-                                ["Difficulty"] = "Easy",
-                                ["FriendsOnly"] = true,
-                                ["MapName"] = _G.Settings.Raidselectmap,
-                                ["Hardcore"] = false
-                            }
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "TeleportPlayers"
-                        )
-                    end
-
-
-                    while _G.Autoboss == true do -- Boss Rush
-                                            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                                                "TeleportToBossRush"
-                                            )
-                                        end
-
-                            while _G.Autospeedraid == true do -- seed raid 
-                                            local Y = math.random(1, #p)
-                                            local Z = p[Y]
-                                            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                                                "TeleportToShadowRaid",
-                                                Z
-                                            )
-                                        end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/KRNL2.lua"))()
+_G.Settings = {
+    antilag = false,
+    balckscreen = false,
+    ReduceDamage = false,
+    FPSGPU = fades,
+    Autoleave = false,
+    kickrejoin = false,
+    LeaveDungeons = false,
+    SummerEvent = false,
+    SummerSpin = false,
+    farmraidtoken = false,
+    skilldelay = 1,
+    distance = 10,
+    toggleguikey = "z",
+    afkandraid = false,
+    autospingem = false,
+    autoclaimrewardraid = false,
+    eggspintime = "3",
+    autoclaimrewardspeed = false,
+    equipselectmain = false,
+    equipselectmain1 = false,
+    equipselectmain2 = false,
+    Autoclaimquest = false,
+    AutoEquipMCharacter = false,
+    AutoEquipACharacter = false,
+    SelectedMainCharacter = "None",
+    SelectedMainCharacter = "None",
+    SelectedMainCharacter = "None",
+    autosellcommon = false,
+    autoselluncommon = false,
+    autosellrare = false,
+    autosellepic = false,
+    selectegg = "None",
+    autoselllegendary = false,
+    autoequipbest = true,
+    autoupgrade = false,
+    Height = 20,
+    Height1 = -20,
+    otherds = "@here",
+    dsuser = "Not Set",
+    AutoPunch = true,
+    punchdelay = "4",
+    webhookspeed = "10",
+    AutoFarm = false,
+    AutoTP = false,
+    AutoTP1 = false,
+    AutoTP2 = true,
+    AutoRetry = false,
+    webhookurl = "",
+    AutoSkill1 = true,
+    AutoSkill2 = true,
+    AutoSkill3 = true,
+    AutoSkill4 = true,
+    AutoSkill5 = true,
+    AutoSkill6 = true,
+    kickwebhook = false,
+    Speed = 80,
+    Hidename = false,
+    Autolvl = false,
+    webhook = false,
+    raidwebhook = false,
+    kickrejoin = true
+}
 loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/trash.lua"))()
 
 if isfile("Mykey.txt") and readfile("Mykey.txt") == _G.Key then
@@ -275,10 +241,7 @@ local G = v:MakeTab({Name = "Credits", PremiumOnly = false})
 
 w:AddButton({
 	Name = "Teleport to Lobby",
-    Default = _G.Settings.backtolobby,
-	Callback = function(H)
-        _G.Settings.backtolobby = H
-        saveSettings()
+	Callback = function()
         game:GetService("TeleportService"):Teleport(6938803436, LocalPlayer)
   	end    
 })
@@ -287,42 +250,6 @@ w:AddButton(
             setclipboard("https://youtu.be/o3VaCa7CcoA")
         end}
 )
---[[
-w:AddToggle(
-    {
-        Name = "🌀 Reselect Characters",
-        Default = _G.Settings.Reselect,
-        Color = Color3.fromRGB(98, 0, 182),
-        Callback = function(H)
-            _G.Settings.Reselect = H
-            saveSettings()
-            task.spawn(
-                function()
-                    while task.wait(20) do
-                        if not _G.Settings.Reselect then
-                            break
-                        end
-                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                             "EquipCharacter",
-                             "Uzui"
-                         )
-                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                             "EquipCharacterAssist",
-                             "Shanks",
-                             1
-                         )
-                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                             "EquipCharacterAssist",
-                             "Obito",
-                             2
-                         )
-                    end
-                end
-            )
-        end
-    }
-)
-w:AddLabel("☝️ This only works with Tengu, Shanks and Obito for now") ]]--
 A:AddToggle(
     {
         Name = "Auto Sell Common",
