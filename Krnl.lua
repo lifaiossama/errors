@@ -1,4 +1,3 @@
- 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/KRNL2.lua"))()
 _G.Settings = {
     antilag = false,
