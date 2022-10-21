@@ -261,12 +261,6 @@ local C = v:MakeTab({Name = "Auto Claim", PremiumOnly = false})
 local z = v:MakeTab({Name = "Webhook", PremiumOnly = false})
 local G = v:MakeTab({Name = "Credits", PremiumOnly = false})
 
---[[
-Name = <string> - The name of the colorpicker.
-Default = <color3> - The default value of the colorpicker.
-Callback = <function> - The function of the colorpicker.
-]]
-
 w:AddToggle(
     {
         Name = "💥 Auto Level",
