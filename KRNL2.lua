@@ -1,9 +1,10 @@
 function Destroy()
     game:GetService("CoreGui").Orion:Destroy()
 end
-                       while _G.Autotrial == true do -- trial
+                       while _G.Autotrial == true do 
+                        Destroy()-- trial
                         wait(5)
-                        Destroy()
+                        
                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                             "TeleportToTimeChallenge"
                         )
