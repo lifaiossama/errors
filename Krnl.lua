@@ -230,13 +230,11 @@ local x = v:MakeTab({Name = "Extra", PremiumOnly = false})
 local D = v:MakeTab({Name = "TP Method", PremiumOnly = false})
 local E = v:MakeTab({Name = "Auto S & P", PremiumOnly = false})
 local y = v:MakeTab({Name = "Specific & Raid", PremiumOnly = false})
-local F = v:MakeTab({Name = "Afk Farm", PremiumOnly = false})
 local A = v:MakeTab({Name = "Auto Sell", PremiumOnly = false})
 local B = v:MakeTab({Name = "Auto Spin", PremiumOnly = false})
 local C = v:MakeTab({Name = "Auto Claim", PremiumOnly = false})
 local z = v:MakeTab({Name = "Webhook", PremiumOnly = false})
 local G = v:MakeTab({Name = "Credits", PremiumOnly = false})
-
 w:AddButton({
 	Name = "Teleport to Lobby",
 	Callback = function()
@@ -623,27 +621,9 @@ D:AddToggle(
         end
     }
 )
-y:AddDropdown(
-    {Name = "Select Difficulty", Default = _G.Settings.CustomDifficulty, Options = r, Callback = function(H)
-            _G.Settings.CustomDifficulty = H
-            saveSettings()
-        end}
-)
 B:AddDropdown(
     {Name = "Select Capsule", Default = _G.Settings.selectegg, Options = s, Callback = function(H)
             _G.Settings.selectegg = H
-            saveSettings()
-        end}
-)
-y:AddDropdown(
-    {Name = "Select Map", Default = _G.Settings.custommapselect, Options = q, Callback = function(H)
-            _G.Settings.custommapselect = H
-            saveSettings()
-        end}
-)
-y:AddDropdown(
-    {Name = "Select Raid", Default = _G.Settings.Raidselectmap, Options = t, Callback = function(H)
-            _G.Settings.Raidselectmap = H
             saveSettings()
         end}
 )
@@ -698,19 +678,6 @@ B:AddToggle(
         end
     }
 )
-y:AddToggle(
-    {Name = "Hardcore", Default = _G.Settings.Hardcore, Color = Color3.fromRGB(98, 0, 182), Callback = function(H)
-            _G.Settings.Hardcore = H
-            saveSettings()
-        end}
-)
-y:AddToggle(
-    {Name = "Friends Only", Default = _G.Settings.FriendsOnly, Color = Color3.fromRGB(98, 0, 182), Callback = function(H)
-            _G.Settings.FriendsOnly = H
-            saveSettings()
-        end}
-)
-
 local p = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("MainGui");
 local l = p.CenterUIFrame.Inventory.Frame.CharacterInventoryFrame.CharacterInventoryScrollingFrame;
 

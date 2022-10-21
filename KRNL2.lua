@@ -1,5 +1,6 @@
 
                        while _G.Autotrial == true do -- trial
+                        wait(10)
                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                             "TeleportToTimeChallenge"
                         )
@@ -7,6 +8,7 @@
 
 
                        while _G.Autocustom == true do -- map
+                        wait(5)
                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                             "CreateRoom",
                             {
@@ -23,6 +25,7 @@
 
 
                     while _G.Autoraid == true do -- Raid
+                        wait(1)
                         game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                             "CreateRoom",
                             {
@@ -39,6 +42,7 @@
 
 
                     while _G.Autoboss == true do -- Boss Rush
+                        wait(3)
                                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                                                 "TeleportToBossRush"
                                             )
