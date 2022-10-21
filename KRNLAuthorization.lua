@@ -63,6 +63,6 @@ _G.Settings = {
 }
 if game.PlaceId == 6938803436 or game.PlaceId == 7338881230 or game.PlaceId == 6990129309 or game.PlaceId == 7274690025 or game.PlaceId == 6990131029 or game.PlaceId == 6990133340 then
     pcall(function()
-           loadstring(game:HttpGet("https://github.com/lifaiossama/errors/blob/main/Krnl.lua"))()
+           loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/Krnl.lua"))()
     end)
 end
