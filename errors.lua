@@ -1842,19 +1842,10 @@ C:AddToggle(
 						MainRemote("CompleteDailyQuest","DailyQuest_Login")
 						MainRemote("CompleteDailyQuest","DailyQuest_DungeonClear")
 						MainRemote("CompleteDailyQuest","DailyQuest_Enemies")
-						MainRemote("CompleteDailyQuest","DailyQuest_TimeChallenge") -- i was lazy now
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "CompleteDailyQuest",
-                            "DailyQuest_Raid"
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "CompleteDailyQuest",
-                            "DailyQuest_BossRush"
-                        )
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "CompleteDailyQuest",
-                            "DailyQuest_AllQuestClear"
-                        )
+						MainRemote("CompleteDailyQuest","DailyQuest_TimeChallenge")
+                        MainRemote("CompleteDailyQuest","DailyQuest_Raid")
+                        MainRemote("CompleteDailyQuest","DailyQuest_BossRush")
+                        MainRemote("CompleteDailyQuest","DailyQuest_AllQuestClear")
                     end
                 end
             )
@@ -2076,15 +2067,15 @@ E:AddToggle(
 E:AddToggle(
     {
         Name = "Assist 1",
-        Default = _G.Settings.AutoSkill5,
+        Default = _G.Settings.AutoSkill6,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
-            _G.Settings.AutoSkill5 = H
+            _G.Settings.AutoSkill6 = H
             saveSettings()
             task.spawn(
                 function()
                     while task.wait(_G.Settings.skilldelay) do
-                        if not _G.Settings.AutoSkill5 then
+                        if not _G.Settings.AutoSkill6 then
                             break
                         end
                         for m, n in pairs(
@@ -2103,15 +2094,15 @@ E:AddToggle(
 E:AddToggle(
     {
         Name = "Assist 2",
-        Default = _G.Settings.AutoSkill6,
+        Default = _G.Settings.AutoSkill7,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
-            _G.Settings.AutoSkill6 = H
+            _G.Settings.AutoSkill7 = H
             saveSettings()
             task.spawn(
                 function()
                     while task.wait(_G.Settings.skilldelay) do
-                        if not _G.Settings.AutoSkill6 then
+                        if not _G.Settings.AutoSkill7 then
                             break
                         end
                         for m, n in pairs(
@@ -2432,22 +2423,3 @@ G:AddButton(
             setclipboard("https://discord.gg/vfkD5VCRKU")
         end}
 )
-G:AddTextbox(
-    {Name = "Toggle Gui Key", Default = _G.Settings.toggleguikey, TextDisappear = false, Callback = function(H)
-            _G.Settings.toggleguikey = H
-            saveSettings()
-        end}
-)
-function Destroy()
-    game:GetService("CoreGui").Orion:Destroy()
-end
-G:AddButton(
-    {Name = "Destroy Gui", Callback = function()
-        Destroy()
-        end}
-)
-G:AddLabel("LastestUpdate : 9/23/2022 ")
-u:MakeNotification({Name = "Correct Key!", Content = "You have entered the correct key!", Time = 10})
-wait(2)
-u:MakeNotification({Name = "The Intruders", Content = "Game: Anime Dimension", Time = 15})
-u:Init()
