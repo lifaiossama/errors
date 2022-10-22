@@ -72,17 +72,17 @@ _G.Settings = {
     Autoraid = false,
     kickrejoin = true
 }
-loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/trash.lua"))()
+-- loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/trash.lua"))()
 
-if isfile("Mykey.txt") and readfile("Mykey.txt") == _G.Key then
-  else
-    game.Players.LocalPlayer:Kick("Brah")
-    wait(5)
-    while true do end;
-  end;
-if not game:IsLoaded() then
-    game.Loaded:Wait()
-end
+-- if isfile("Mykey.txt") and readfile("Mykey.txt") == _G.Key then
+--   else
+--     game.Players.LocalPlayer:Kick("Brah")
+--     wait(5)
+--     while true do end;
+--   end;
+-- if not game:IsLoaded() then
+--     game.Loaded:Wait()
+-- end
 local a = "The Intruders"
 local b = game.Players.LocalPlayer.Name .. "_AnimeDimension.lua"
 function saveSettings()
