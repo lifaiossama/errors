@@ -1,3 +1,78 @@
+-- _G.Settings = {
+--     Autotrial  =false;
+--     antilag = false;
+--     balckscreen = false;
+--     ReduceDamage = false;
+--     FPSGPU = fades;
+--     Autoleave = false;
+--     kickrejoin = false;
+--     LeaveDungeons = false;
+--     SummerEvent = false;
+--     SummerSpin = false;
+--     farmraidtoken = false;
+--     skilldelay = 1;
+--     Raidselectmap = "None";
+--     distance = 10;
+--     toggleguikey = "z";
+--     Hardcore = true;
+--     afkandraid = false;
+--     autospingem = false;
+--     autoclaimrewardraid = false;
+--     FriendsOnly = true;
+--     eggspintime = "3";
+--     autoclaimrewardspeed = false;
+--     equipselectmain = false;
+--     equipselectmain1 = false;
+--     equipselectmain2 = false;
+--     Autoclaimquest = false;
+--     AutoEquipMCharacter = false;
+--     AutoEquipACharacter = false;
+--     SelectedMainCharacter = "None";
+--     SelectedAssitCharacter1 = "None";
+--     SelectedAssitCharacter2 = "None";
+--     autosellcommon = false;
+--     autoselluncommon = false;
+--     autosellrare = false;
+--     autosellepic = false;
+--     selectegg = "None";
+--     autoselllegendary = false;
+--     autoequipbest = true;
+--     autoupgrade = false;
+--     Height = 20;
+--     Height1 = -20;
+--     otherds = "@here";
+--     dsuser = "Not Set";
+--     AutoPunch = true;
+--     punchdelay = "4";
+--     custommapselect = "None";
+--     webhookspeed = "10";
+--     AutoFarm = false;
+--     AutoTP = false;
+--     AutoTP1 = false;
+--     AutoTP2 = true;
+--     CustomDifficulty = "None";
+--     Autocustom = false;
+--     AutoRetry = false;
+--     webhookurl = "";
+--     AutoSkill1 = true;
+--     AutoSkill2 = true;
+--     AutoSkill3 = true;
+--     AutoSkill4 = true;
+--     AutoSkill5 = true;
+--     SkillAssist1 = true;
+--     SkillAssist2 = true;
+--     kickwebhook = false;
+--     Speed = 80;
+--     Hidename = false;
+--     Autolvl = false;
+--     Autospeedraid = false;
+--     Autoboss = false;
+--     webhook = false;
+--     raidwebhook = false;
+--     Autoraid = false;
+--     kickrejoin = true;
+--     }
+
 
 _G.Settings = {
     Autotrial  =false,
@@ -12,6 +87,7 @@ _G.Settings = {
     SummerSpin = false,
     farmraidtoken = false,
     skilldelay = 1,
+    allskills = true,
     Raidselectmap = "None",
     distance = 10,
     toggleguikey = "z",
@@ -29,8 +105,8 @@ _G.Settings = {
     AutoEquipMCharacter = false,
     AutoEquipACharacter = false,
     SelectedMainCharacter = "None",
-    SelectedMainCharacter = "None",
-    SelectedMainCharacter = "None",
+    SelectedAssitCharacter1 = "None",
+    SelectedAssitCharacter2 = "None",
     autosellcommon = false,
     autoselluncommon = false,
     autosellrare = false,
@@ -60,7 +136,8 @@ _G.Settings = {
     AutoSkill3 = true,
     AutoSkill4 = true,
     AutoSkill5 = true,
-    AutoSkill6 = true,
+    SkillAssist1 = true,
+    SkillAssist2 = true,
     kickwebhook = false,
     Speed = 80,
     Hidename = false,
@@ -84,7 +161,7 @@ _G.Settings = {
 --     game.Loaded:Wait()
 -- end
 local a = "The Intruders"
-local b = game.Players.LocalPlayer.Name .. "_AnimeDimension.lua"
+local b = game.Players.LocalPlayer.Name .. "_AnimeDimension2.lua"
 function saveSettings()
     local c = game:GetService("HttpService")
     local d = c:JSONEncode(_G.Settings)
@@ -246,7 +323,7 @@ local q = {
 }
 local r = {"Easy", "Hard", "Nightmare", "Infinite"}
 local s = {"Nardo Beast Capsule", "Raid Capsule", "Gear 5 Fluffy Capsule","Cursed Sage Capsule","Red Emperor Capsule", "Esper Capsule"}
-local t = { "Tengu Raid", "Nardo Beast Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid", "Hirito Raid", "Titan Raid"}
+local t = { "Tengu Raid", "Tengoku Raid" "Nardo Beast Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid", "Hirito Raid", "Titan Raid"}
 local u = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
 local v = u:MakeWindow({Name = "The Intruders", HidePremium = true, IntroEnabled = false})
 local w = v:MakeTab({Name = "Main", PremiumOnly = false})
@@ -1206,33 +1283,33 @@ D:AddToggle(
                         end
                         pcall(
                             function()
-                                for m, n in pairs(game:GetService("Workspace").Folders.Monsters:GetChildren()) do
-                                    repeat
-                                        game:GetService("RunService").Heartbeat:wait()
-                                        local T =
-                                            (n.HumanoidRootPart.Position -
-                                            game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-                                        if T < 999 then
-                                            Speed2 = _G.Settings.Speed
-                                        elseif T < 1000 then
-                                            Speed2 = _G.Settings.Speed
-                                        elseif T >= 1000 then
-                                            Speed2 = _G.Settings.Speed
-                                        end
-                                        local U = game:service "TweenService"
-                                        local V = TweenInfo.new(T / Speed2, Enum.EasingStyle.Linear)
-                                        local W =
-                                            U:Create(
-                                            game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"],
-                                            V,
-                                            {
-                                                CFrame = n.HumanoidRootPart.CFrame *
-                                                    CFrame.new(0, 0, _G.Settings.distance)
-                                            }
-                                        )
-                                        W:Play()
-                                        wait(T / Speed2)
-                                    until not _G.Settings.AutoTP2 or n.Humanoid.Health <= 0 or not n.Parent or not n
+        for m, n in pairs(game:GetService("Workspace").Folders.Monsters:GetChildren()) do
+            repeat
+                game:GetService("RunService").Heartbeat:wait()
+                local T =
+                    (n.HumanoidRootPart.Position -
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+                if T < 999 then
+                    Speed2 = _G.Settings.Speed
+                elseif T < 1000 then
+                    Speed2 = _G.Settings.Speed
+                elseif T >= 1000 then
+                    Speed2 = _G.Settings.Speed
+                end
+                local U = game:service "TweenService"
+                local V = TweenInfo.new(T / Speed2, Enum.EasingStyle.Linear)
+                local W =
+                    U:Create(
+                    game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"],
+                    V,
+                    {
+                        CFrame = n.HumanoidRootPart.CFrame *
+                            CFrame.new(0, 0, _G.Settings.distance)
+                    }
+                )
+                W:Play()
+                wait(T / Speed2)
+            until not _G.Settings.AutoTP2 or n.Humanoid.Health <= 0 or not n.Parent or not n
                                 end
                             end
                         )
@@ -1927,7 +2004,36 @@ E:AddToggle(
 )
 
 E:AddLabel("Skill Setting")
-
+E:AddToggle(
+    {
+        Name = "all skills",
+        Default = _G.Settings.allskills,
+        Color = Color3.fromRGB(98, 0, 182),
+        Callback = function(H)
+            _G.Settings.allskills = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(_G.Settings.skilldelay) do
+                        if not _G.Settings.allskills then
+                            break
+                        end
+                        pcall(function()
+                            if (game:GetService("RunService").Heartbeat().Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 150 then
+                                for i = 1, 4 do
+                                    for m, n in
+        pairs(getconnections(game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder["Skill"..tostring(i)..""].MouseButton1Click)) do
+                                        n:Fire();
+                                        wait(1)
+                                    end
+                                end
+                            end
+                            end)
+                        end
+                    end)
+                end
+    }
+)
 E:AddToggle(
     {
         Name = "skill 1",
@@ -2067,15 +2173,15 @@ E:AddToggle(
 E:AddToggle(
     {
         Name = "Assist 1",
-        Default = _G.Settings.AutoSkill6,
+        Default = _G.Settings.SkillAssist1,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
-            _G.Settings.AutoSkill6 = H
+            _G.Settings.SkillAssist1 = H
             saveSettings()
             task.spawn(
                 function()
                     while task.wait(_G.Settings.skilldelay) do
-                        if not _G.Settings.AutoSkill6 then
+                        if not _G.Settings.SkillAssist1 then
                             break
                         end
                         for m, n in pairs(
@@ -2094,15 +2200,15 @@ E:AddToggle(
 E:AddToggle(
     {
         Name = "Assist 2",
-        Default = _G.Settings.AutoSkill7,
+        Default = _G.Settings.SkillAssist2,
         Color = Color3.fromRGB(98, 0, 182),
         Callback = function(H)
-            _G.Settings.AutoSkill7 = H
+            _G.Settings.SkillAssist2 = H
             saveSettings()
             task.spawn(
                 function()
                     while task.wait(_G.Settings.skilldelay) do
-                        if not _G.Settings.AutoSkill7 then
+                        if not _G.Settings.SkillAssist2 then
                             break
                         end
                         for m, n in pairs(
@@ -2423,3 +2529,22 @@ G:AddButton(
             setclipboard("https://discord.gg/vfkD5VCRKU")
         end}
 )
+G:AddTextbox(
+    {Name = "Toggle Gui Key", Default = _G.Settings.toggleguikey, TextDisappear = false, Callback = function(H)
+            _G.Settings.toggleguikey = H
+            saveSettings()
+        end}
+)
+function Destroy()
+    game:GetService("CoreGui").Orion:Destroy()
+end
+G:AddButton(
+    {Name = "Destroy Gui", Callback = function()
+        Destroy()
+        end}
+)
+G:AddLabel("LastestUpdate : 9/23/2022 ")
+u:MakeNotification({Name = "Correct Key!", Content = "You have entered the correct key!", Time = 10})
+wait(2)
+u:MakeNotification({Name = "The Intruders", Content = "Game: Anime Dimension", Time = 15})
+u:Init()
