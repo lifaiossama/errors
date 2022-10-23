@@ -161,7 +161,7 @@ _G.Settings = {
 --     game.Loaded:Wait()
 -- end
 local a = "The Intruders"
-local b = game.Players.LocalPlayer.Name .. "_AnimeDimension2.lua"
+local b = game.Players.LocalPlayer.Name .. "_AnimeDimension.lua"
 function saveSettings()
     local c = game:GetService("HttpService")
     local d = c:JSONEncode(_G.Settings)
