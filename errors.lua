@@ -2019,12 +2019,14 @@ E:AddToggle(
                             break
                         end
                         pcall(function()
-                            if (game:GetService("RunService").Heartbeat().Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 150 then
+                            for i,v in pairs (game:GetService("Workspace").Folders.Monsters:GetChildren()) do
+                            if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
                                 for i = 1, 4 do
                                     for m, n in
         pairs(getconnections(game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder["Skill"..tostring(i)..""].MouseButton1Click)) do
                                         n:Fire();
                                         wait(1)
+        end
                                     end
                                 end
                             end
