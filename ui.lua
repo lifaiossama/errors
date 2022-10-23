@@ -11,7 +11,7 @@ if isfile("Mykey.txt") and readfile("Mykey.txt") == _G.Key then
     if not game:IsLoaded() then
       game.Loaded:Wait()
   end
-  local a = "The Intruders2"
+  local a = "The Intruders"
   local b = game.Players.LocalPlayer.Name .. "_KRNLAnimeDimension.lua"
   function saveSettings()
       local c = game:GetService("HttpService")
@@ -144,10 +144,7 @@ if isfile("Mykey.txt") and readfile("Mykey.txt") == _G.Key then
   
   local SolarisLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/sol"))()
   
-  --[[SolarisLib:New({
-    Name - Title of the UI <string>
-    FolderToSave - Name of the folder where the UI files will be stored <string>
-  })]]
+
   local win = SolarisLib:New({
     Name = "The Intruders",
     FolderToSave = "The Intruders"
