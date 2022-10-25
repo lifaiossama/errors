@@ -2050,17 +2050,21 @@ E:AddToggle(
                         if not _G.Settings.AutoSkill1 then
                             break
                         end
+                        pcall(function()
+                            for i,v in pairs (game:GetService("Workspace").Folders.Monsters:GetChildren()) do
+                            if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
                         for m, n in pairs(
                             getconnections(
-                                game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.Skill1.MouseButton1Click
-                            )
-                        ) do
+                                game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.Skill1.MouseButton1Click)) do
                             n:Fire()
+                            wait(1)
                         end
-                    end
+                        end
                 end
-            )
-        end
+                    end)
+                end
+                end)
+                end
     }
 )
 E:AddToggle(
@@ -2186,15 +2190,18 @@ E:AddToggle(
                         if not _G.Settings.SkillAssist1 then
                             break
                         end
+                        for i,v in pairs (game:GetService("Workspace").Folders.Monsters:GetChildren()) do
+                            if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
                         for m, n in pairs(
                             getconnections(
-                                game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.SkillAssist1.MouseButton1Click
-                            )
-                        ) do
+                                game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.SkillAssist1.MouseButton1Click)) do
                             n:Fire()
+                            wait(1)
                         end
                     end
                 end
+            end
+        end
             )
         end
     }
@@ -2213,20 +2220,24 @@ E:AddToggle(
                         if not _G.Settings.SkillAssist2 then
                             break
                         end
+                        for i,v in pairs (game:GetService("Workspace").Folders.Monsters:GetChildren()) do
+                            if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
                         for m, n in pairs(
                             getconnections(
                                 game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.SkillAssist2.MouseButton1Click
                             )
                         ) do
                             n:Fire()
+                            wait(1)
                         end
                     end
                 end
+            end
+        end
             )
         end
     }
 )
-
 
 E:AddSlider(
     {Name = "Skill Delay", Default = _G.Settings.skilldelay, Min = 1, Max = 5, Color = Color3.fromRGB(98, 0, 182), Callback = function(H)
