@@ -2191,7 +2191,7 @@ E:AddToggle(
                             break
                         end
                         for i,v in pairs (game:GetService("Workspace").Folders.Monsters:GetChildren()) do
-                            if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
+                            if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 30 then
                         for m, n in pairs(
                             getconnections(
                                 game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.SkillAssist1.MouseButton1Click)) do
@@ -2220,7 +2220,7 @@ E:AddToggle(
                             break
                         end
                         for i,v in pairs (game:GetService("Workspace").Folders.Monsters:GetChildren()) do
-                            if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
+                            if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 30 then
                         for m, n in pairs(
                             getconnections(
                                 game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.SkillAssist2.MouseButton1Click
