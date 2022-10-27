@@ -2196,7 +2196,6 @@ E:AddToggle(
                             getconnections(
                                 game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.SkillAssist1.MouseButton1Click)) do
                             n:Fire()
-                            wait(1)
                         end
                     end
                 end
@@ -2228,7 +2227,6 @@ E:AddToggle(
                             )
                         ) do
                             n:Fire()
-                            wait(1)
                         end
                     end
                 end
