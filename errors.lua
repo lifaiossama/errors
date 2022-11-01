@@ -157,9 +157,9 @@ _G.Settings = {
 --     wait(5)
 --     while true do end;
 --   end;
--- if not game:IsLoaded() then
---     game.Loaded:Wait()
--- end
+if not game:IsLoaded() then
+    game.Loaded:Wait()
+end
 local a = "The Intruders"
 local b = game.Players.LocalPlayer.Name .. "_AnimeDimension.lua"
 function saveSettings()
@@ -877,17 +877,27 @@ w:AddToggle(
             saveSettings()
             task.spawn(
                 function()
-                    while task.wait(1) do
-                        if not _G.Settings.Autospeedraid then
-                            break
+                    while _G.Settings.Autospeedraid do wait(2)
+                        if not game:GetService("Players").LocalPlayer.PlayerGui.UniversalGui:FindFirstChild("TeleportingUI").Visible then
+                            local p = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("MainGui");
+                            local l = p.CenterUIFrame.Inventory.Frame.CharacterInventoryFrame.CharacterInventoryScrollingFrame;
+        
+                            local SpeedRaidCharacters = {}
+                            for i,v in ipairs(l:GetChildren()) do 
+                                if v:FindFirstChild("CharacterImage") and v.Name ~= "CharacterInventorySlot" and not table.find(SpeedRaidCharacters, v.Name) then
+                                    table.insert(SpeedRaidCharacters,v.Name)
+                                end;
+                            end;
+                            table.sort(SpeedRaidCharacters)
+        
+                            local Y = math.random(1, #SpeedRaidCharacters)
+                            local Z = SpeedRaidCharacters[Y]
+                            print(Z)
+                            game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
+                                "TeleportToShadowRaid",
+                                Z
+                            )
                         end
-                        wait()
-                        local Y = math.random(1, #p)
-                        local Z = p[Y]
-                        game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
-                            "TeleportToShadowRaid",
-                            Z
-                        )
                     end
                 end
             )
@@ -1331,34 +1341,68 @@ B:AddDropdown(
             saveSettings()
         end}
 )
+
+local p = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("MainGui");
+local l = p.CenterUIFrame.PlayFrame.Frame.PlayRoomFrame.MapSelectionScrollingFrame;
+
+local RaidSelect = {}
+-- if   game.PlaceId == 7338881230 then
+for i,v in ipairs(l:GetChildren()) do 
+  if v:FindFirstChild("MapImage") and v.Name ~= "MapSelectionTemplate" and not table.find(RaidSelect, v.Name) then
+    table.insert(RaidSelect,v.Name) 
+  end;
+end;
+table.sort(RaidSelect)
+local tozx
+if game.PlaceId == 7338881230 then 
+ tozx = {"Please Teleport to main lobby to select The map"}
+else 
+    tozx = RaidSelect
+end
+
+
 y:AddDropdown(
-    {Name = "Select Map", Default = _G.Settings.custommapselect, Options = q, Callback = function(H)
+    {Name = "Select Map", Default = _G.Settings.custommapselect, Options = tozx, Callback = function(H)
             _G.Settings.custommapselect = H
             saveSettings()
         end}
 )
 
+local p = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("MainGui");
+local l = p.CenterUIFrame.PlayFrame.Frame.PlayRoomFrame.MapSelectionScrollingFrame;
 
+local RaidSelect = {}
+-- if   game.PlaceId == 7338881230 then
+for i,v in ipairs(l:GetChildren()) do 
+  if v:FindFirstChild("MapImage") and v.Name ~= "MapSelectionTemplate" and not table.find(RaidSelect, v.Name) then
+    table.insert(RaidSelect,v.Name) 
+  end;
+end;
+table.sort(RaidSelect)
+local tozx
+if game.PlaceId == 6938803436 then 
+ tozx = {"Please Teleport to raid lobby to select The raid map"}
+else 
+    tozx = RaidSelect
+end
 
-
--- local p = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("MainGui");
--- local l = p.CenterUIFrame.PlayFrame.Frame.PlayRoomFrame.MapSelectionScrollingFrame;
-
--- local RaidSelect = {}
--- for i,v in ipairs(l:GetChildren()) do 
---   if v:FindFirstChild("MapImage") and v.Name ~= "MapSelectionTemplate" and not table.find(RaidSelect, v.Name) then
---     table.insert(RaidSelect,v.Name)
---   end;
--- end;
--- table.sort(RaidSelect)
 
 y:AddDropdown(
-    {Name = "Select Raid", Default = _G.Settings.Raidselectmap, Options = t, Callback = function(H)
+    {Name = "Select Raid", Default = _G.Settings.Raidselectmap, Options = tozx , Callback = function(H)
             _G.Settings.Raidselectmap = H
             saveSettings()
-        end}
+    end}
 )
 
+y:AddButton({
+	Name = "Teleport to raid lobby",
+    Default = _G.Settings.backtolobby,
+	Callback = function(H)
+        _G.Settings.backtolobby = H
+        saveSettings()
+        game:GetService("TeleportService"):Teleport(7338881230, LocalPlayer)
+  	end    
+})
 B:AddToggle(
     {
         Name = "Auto Capsule",
