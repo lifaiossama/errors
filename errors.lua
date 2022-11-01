@@ -323,7 +323,7 @@ local q = {
 }
 local r = {"Easy", "Hard", "Nightmare", "Infinite"}
 local s = {"Nardo Beast Capsule", "Raid Capsule", "Gear 5 Fluffy Capsule","Cursed Sage Capsule","Red Emperor Capsule", "Esper Capsule"}
-local t = { "Tengu Raid", "Tengoku Raid", "Nardo Beast Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid", "Hirito Raid", "Titan Raid"}
+local t = { "Chainsaw Raid", "Tengu Raid", "Tengoku Raid", "Nardo Beast Raid", "Gear 5 Fluffy Raid", "Red Emperor Raid", "Cursed Sage Raid", "Hirito Raid", "Titan Raid"}
 local u = loadstring(game:HttpGet("https://raw.githubusercontent.com/shlexware/Orion/main/source"))()
 local v = u:MakeWindow({Name = "The Intruders", HidePremium = true, IntroEnabled = false})
 local w = v:MakeTab({Name = "Main", PremiumOnly = false})
@@ -1337,6 +1337,21 @@ y:AddDropdown(
             saveSettings()
         end}
 )
+
+
+
+
+-- local p = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("MainGui");
+-- local l = p.CenterUIFrame.PlayFrame.Frame.PlayRoomFrame.MapSelectionScrollingFrame;
+
+-- local RaidSelect = {}
+-- for i,v in ipairs(l:GetChildren()) do 
+--   if v:FindFirstChild("MapImage") and v.Name ~= "MapSelectionTemplate" and not table.find(RaidSelect, v.Name) then
+--     table.insert(RaidSelect,v.Name)
+--   end;
+-- end;
+-- table.sort(RaidSelect)
+
 y:AddDropdown(
     {Name = "Select Raid", Default = _G.Settings.Raidselectmap, Options = t, Callback = function(H)
             _G.Settings.Raidselectmap = H
