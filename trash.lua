@@ -1,2 +1,4 @@
-_G.Key = "5zgpV4hUuhTSYH4F7RxyiWP9g2l68h"
+_G.Key = "g7SUl3Sf3Jwp3tYyOVGoIOriBlG156"
 _G.KeyInput = "string"
+
+
