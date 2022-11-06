@@ -1568,7 +1568,7 @@ local Toggle = E:CreateToggle({
 					if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 20 then
 						for i = 1, 4 do
 							for m, n in
-pairs(getconnections(game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder["Skill"..tostring(i)..""].MouseButton1Click)) do
+pairs(getconnections(game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder["Skill"..i..""].MouseButton1Click)) do
 	for m, n in pairs(
 		getconnections(
 			game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.Skill5.MouseButton1Click
