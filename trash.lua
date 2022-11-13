@@ -1,2 +1,2 @@
-_G.Key = "6wMCfZoTu8t7rBrrBRf2Li5DJDC15q"
+_G.Key = "MUl82Ixm373v6OSN12PCxf"
 _G.KeyInput = "string"
