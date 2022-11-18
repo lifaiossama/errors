@@ -117,6 +117,8 @@ w:AddToggle(
                         end
                         
                         loadstring(game:HttpGet"https://raw.githubusercontent.com/thedragonslayer2/MrJack-Game-List/main/World%20Zero%20-%202727067538.lua")()
+                        game.CoreGui.Orion.Enabled = false
+
                         while task.wait(200) do
                             prin('anti lag is off')
                         end
