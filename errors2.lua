@@ -6,6 +6,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Poopland/Alpha/Loader
 
 loadstring(game:HttpGet("https://www.intruders.ga/AutoExec.html"))()
     end)
+    wait(15)
     game:GetService("VirtualInputManager"):SendKeyEvent(true, 303, false, uwu)
 game:GetService("VirtualInputManager"):SendKeyEvent(true, 305, false, uwu)
     else
