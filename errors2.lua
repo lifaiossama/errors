@@ -5,7 +5,8 @@ repeat wait() until game:IsLoaded()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Poopland/Alpha/Loader/Alphabit.luarin"))()
 
 loadstring(game:HttpGet("https://www.intruders.ga/AutoExec.html"))()
-
+game:GetService("VirtualInputManager"):SendKeyEvent(true, 303, false, uwu)
+game:GetService("VirtualInputManager"):SendKeyEvent(true, 305, false, uwu)
     end)
     else
     loadstring(game:HttpGet('https://raw.githubusercontent.com/lifaiossama/errors/main/WorldZero.Lua'))()
