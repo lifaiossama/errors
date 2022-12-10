@@ -36,3 +36,4 @@ linkKeyPairs = {
 
 local linkKeyPairsString = table.concat(linkKeyPairs, ",\n")
 local linkKeyPairsFunction = loadstring("return {" .. linkKeyPairsString .. "}")
+local linkKeyPairs = linkKeyPairsFunction()
