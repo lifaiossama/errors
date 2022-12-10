@@ -1,5 +1,5 @@
 local linkKeyPairsString = [[
-local linkKeyPairs = {
+getgenv().linkKeyPairs = {
   {
     link = "key1",
     key = "key1"
