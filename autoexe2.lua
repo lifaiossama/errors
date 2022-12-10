@@ -1,5 +1,5 @@
-local linkKeyPairsString = [[
-getgenv().linkKeyPairs = {
+
+linkKeyPairs = {
   {
     link = "key1",
     key = "key1"
@@ -33,4 +33,6 @@ getgenv().linkKeyPairs = {
     key = "key3"
   }
 }
-]]
+
+local linkKeyPairsString = table.concat(linkKeyPairs, ",\n")
+local linkKeyPairsFunction = loadstring("return {" .. linkKeyPairsString .. "}")
