@@ -9,6 +9,7 @@ local games = {
     [6990131029] = "ADS.lua",
     [6990133340] = "ADS.lua",
     [7525610732] = "Kaizen.lua",
+    [11040063484] = "SwordSim.lua",
 }
 
 for i, v in pairs(games) do
