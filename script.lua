@@ -1,4 +1,3 @@
-
 repeat wait() until game:IsLoaded()
 
 if Beta == true then
@@ -24,5 +23,4 @@ for i, v in pairs(games) do
     if i == game.PlaceId or i == game.GameId then
         loadstring(game:HttpGet(rs .. v))()
     end
-end
 end
