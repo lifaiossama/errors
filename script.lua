@@ -1,12 +1,5 @@
 repeat wait() until game:IsLoaded()
-
-if Beta == true then
-    loadstring(game:HttpGet"https://www.intruders.ga/Testers.lua")()
-end
-
-if not Beta == true then 
-
-    local rs = "http://www.intruders.ga/"
+local rs = "http://www.intruders.ga/"
 
 local games = {
     [6938803436] = "ADS.lua",
