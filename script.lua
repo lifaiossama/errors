@@ -1,5 +1,13 @@
+
 repeat wait() until game:IsLoaded()
-local rs = "http://www.intruders.ga/"
+
+if Beta == true then
+    loadstring(game:HttpGet"https://www.intruders.ga/Testers.lua")()
+end
+
+if not Beta == true then 
+
+    local rs = "http://www.intruders.ga/"
 
 local games = {
     [6938803436] = "ADS.lua",
@@ -16,4 +24,5 @@ for i, v in pairs(games) do
     if i == game.PlaceId or i == game.GameId then
         loadstring(game:HttpGet(rs .. v))()
     end
+end
 end
