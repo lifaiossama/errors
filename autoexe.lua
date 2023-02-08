@@ -1,0 +1,1 @@
+game.Players.LocalPlayer:Kick("This Link no longer works please join our discord server to get the new link || https://discord.gg/VJuhSbNxCU")
