@@ -1,5 +1,5 @@
 repeat wait() until game:IsLoaded()
-local rs = "http://www.intruders.ga/"
+local rs = "https://raw.githubusercontent.com/lifaiossama/errors/main/"
 
 local games = {
     [6938803436] = "ADS.lua",
