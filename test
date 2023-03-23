@@ -114,7 +114,7 @@ local Players = game:GetService("Players")
 local CoreGui = game:GetService("CoreGui")
 
 -- Interface Management
-local Rayfield =  game:GetObjects("rbxassetid://11637506633")[1]
+local Rayfield =  game:GetObjects("rbxassetid://12871084046")[1]
 
 --studio
 --function gethui() return Rayfield end local http_request = nil local syn = {protect_gui = false,request = false,}local http = nil function writefile(tt,t,ttt)end function isfolder(t)end function makefolder(t)end function isfile(r)end function readfile(t)end
@@ -157,6 +157,8 @@ local TabList = Main.TabList
 local SearchBar = Main.Searchbar
 local Filler = SearchBar.CanvasGroup.Filler
 local Prompt = Main.Prompt
+
+LoadingFrame.Visible = false
 
 Rayfield.DisplayOrder = 100
 LoadingFrame.Version.Text = Release
@@ -974,7 +976,7 @@ function RayfieldLibrary:CreateWindow(Settings)
 	end
 	Topbar.Visible = false
 	Elements.Visible = false
-	LoadingFrame.Visible = true
+	LoadingFrame.Visible = false
 
 
 	pcall(function()
@@ -1612,6 +1614,10 @@ function RayfieldLibrary:CreateWindow(Settings)
 			Input.InputFrame.InputBox:GetPropertyChangedSignal("Text"):Connect(function()
 				TweenService:Create(Input.InputFrame, TweenInfo.new(0.55, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, Input.InputFrame.InputBox.TextBounds.X + 24, 0, 30)}):Play()
 			end)
+
+			local Success, Response = pcall(function()
+				InputSettings.Callback(Input.InputFrame.InputBox.Text)
+			end)
 		end
 
 		-- Dropdown
@@ -1842,6 +1848,8 @@ function RayfieldLibrary:CreateWindow(Settings)
 					Dropdown.Selected.Text = ''
 				end
 			end
+
+			DropdownSettings:Set(DropdownSettings.CurrentOption)
 
 			return DropdownSettings
 		end
@@ -2147,6 +2155,9 @@ function RayfieldLibrary:CreateWindow(Settings)
 				SaveConfiguration()
 			end
 
+
+			ToggleSettings:Set(ToggleSettings.CurrentValue)
+
 			if Settings.ConfigurationSaving then
 				if Settings.ConfigurationSaving.Enabled and ToggleSettings.Flag then
 					RayfieldLibrary.Flags[ToggleSettings.Flag] = ToggleSettings
@@ -2410,6 +2421,9 @@ function RayfieldLibrary:CreateWindow(Settings)
 				SliderSettings.CurrentValue = NewVal
 				SaveConfiguration()
 			end
+
+			SliderSettings:Set(SliderSettings.CurrentValue)
+
 			if Settings.ConfigurationSaving then
 				if Settings.ConfigurationSaving.Enabled and SliderSettings.Flag then
 					RayfieldLibrary.Flags[SliderSettings.Flag] = SliderSettings
@@ -2424,10 +2438,6 @@ function RayfieldLibrary:CreateWindow(Settings)
 
 	Elements.Visible = true
 
-	wait(1.2)
-	TweenService:Create(LoadingFrame.Title, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
-	TweenService:Create(LoadingFrame.Subtitle, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
-	TweenService:Create(LoadingFrame.Version, TweenInfo.new(0.5, Enum.EasingStyle.Quint), {TextTransparency = 1}):Play()
 	wait(0.2)
 	TweenService:Create(Main, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {Size = UDim2.new(0, 500, 0, 475)}):Play()
 	TweenService:Create(Main.Shadow.Image, TweenInfo.new(0.7, Enum.EasingStyle.Quint), {ImageTransparency = 0.4}):Play()
